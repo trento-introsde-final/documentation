@@ -20,3 +20,14 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+System Architecture
+-------------------
+
+Here a description of the architecture.
+
+Telegram Bot
+-------------------
+
+Web Services
+-------------------
+
