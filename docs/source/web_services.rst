@@ -32,12 +32,12 @@ Storage Services
 * **GET** ``/users/<user-id>/new-runs`` {Params: startDate}: Connects to LocalDatabaseService to fetch access_token, then fetches latest runs from Strava through the AdapterService, and returns the untracked runs in case there are any.
 * **POST** ``/users/<user-id>/runs``:
 * **GET** ``/users/<user-id>/goals``: Connects to LocalDatabaseService and gets all the goals for the user. 
-* **PUT** ``/users/<id>/goal/<goal-type> ``
+* **PUT** ``/users/<id>/goal/<goal-type>``
 * **GET** ``/pretty-pic``: connects to the adapterServices and returns 1 picture url.
 * **GET** ``/motivation-quote``: connects to the adapterServices and returns 1 motivation quote.
 
 Local Database Services
------------------------
+------------------------
 
 * **POST** ``/users`` {Params: validation_code, strava_auth_code}
 * **GET** ``/users`` {Params: validation_code}
