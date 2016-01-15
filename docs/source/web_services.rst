@@ -1,3 +1,8 @@
+.. |br| raw:: html
+
+   <br />
+
+
 Web Services
 ==========================
 
@@ -118,6 +123,32 @@ Connects to Strava, through a POST request to retrieve the user access token, an
 
 	No input
 
+	**Output**:
+
+	====================   =====================================
+	**status**             **String** |br| 
+	                       ERROR if the request encountered a
+	                       problem. 
+	                       |br| OK otherwise.
+	**resut**              **Object** AthleteProfile
+	**error**              **String** |br|
+	                       Message describing encountered
+	                       errors.
+	====================   =====================================
+
+	AthleteProfile:
+	========================   =====================================
+	**access_token**           **float** |br| meters
+	**moving_time**            **integer** |br| seconds
+	**total_elevation_gain**   **float** |br| meters
+	**start_date**             **time string**
+	**start_date_local**       **time string**
+	**timezone**               **string**
+	**average_speed**          **float** |br| meters per second
+	**max_speed**              **float** |br| meters per second
+	**calories**               **float** |br| kilocalories
+	========================   =====================================
+
 	**Sample output**:
 
 	.. code-block:: json
@@ -158,13 +189,49 @@ Connects to Strava, through a POST request to retrieve the user access token, an
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Connects, and gets latest run information.
+
+	**Parameters**:
+
+	====================   =====================================
+	**startDate**           **integer** |br| UNIX timestamp.
+	                        Will retrieve runs more recent than
+	                        this.
+	====================   =====================================
+
+	**Output**:
+
+	====================   =====================================
+	**status**             **String** |br| 
+	                       ERROR if there was a problem
+	                       connecting to Strava. 
+	                       |br| OK otherwise.
+	**resuts**             **Array** of `Run`
+	**error**              **String** |br|
+	                       Message describing encountered
+	                       errors.
+	====================   =====================================
+
+	Run object:
+
+	========================   =====================================
+	**distance**               **float** |br| meters
+	**moving_time**            **integer** |br| seconds
+	**total_elevation_gain**   **float** |br| meters
+	**start_date**             **time string**
+	**start_date_local**       **time string**
+	**timezone**               **string**
+	**average_speed**          **float** |br| meters per second
+	**max_speed**              **float** |br| meters per second
+	**calories**               **float** |br| kilocalories
+	========================   =====================================
+
 	
 	**Sample input**:
 
 	.. code-block:: json
 
 		{
-			"startDate": "1452811770"
+			"startDate": 1452811770
 		}
 
 	**Sample output**:
@@ -172,35 +239,17 @@ Connects, and gets latest run information.
 	.. code-block:: json
 		
 		{
-			"result": "OK",
+			"status": "OK",
 			"results": [
 				{
 					"distance": 32486.1,
 					"moving_time": 5241,
-					"elapsed_time": 5427,
 					"total_elevation_gain": 566.0,
 					"start_date": "2013-08-24T00:04:12Z",
 					"start_date_local": "2013-08-23T17:04:12Z",
 					"timezone": "(GMT-08:00) America/Los_Angeles",
-					"start_latlng": [
-						37.793551,
-						-122.2686
-					],
-					"end_latlng": [
-						37.792836,
-						-122.268287
-					],
-					
 					"average_speed": 3.4,
 					"max_speed": 4.514,
-					"average_watts": 163.6,
-					"max_watts": 754,
-					"weighted_average_watts": 200,
-					"kilojoules": 857.6,
-					"device_watts": true,
-					"average_heartrate": 138.8,
-					"max_heartrate": 179.0,
-					"average_speed": 3.4,
 					"calories": 390.5
 				}
 			]
