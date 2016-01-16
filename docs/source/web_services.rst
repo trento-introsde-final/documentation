@@ -44,24 +44,117 @@ Storage Services (REST)
 Local Database Services (REST)
 -------------------------------
 
-* **POST** ``/users`` {Params: validation_code, strava_auth_code}
+**POST** ``/users`` {Params: validation_code, strava_auth_code}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* **GET** ``/users`` {Params: validation_code}
-* **PUT** ``/users/<user_id>``
-* **PUT** ``/users/<user_id>`` {telegram_user_id,  telegram_chat_id}
+**GET** ``/users`` {Params: validation_code}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* **GET** ``/goal-types``
-* **GET** ``/goal-types/<goal-type>``
-* **GET** ``/user-id/<telegram-id>``
-* **PUT** ``/users/<user-id>/goals/<goal-type>`` {value}
+**PUT** ``/users/<user_id>``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* **GET** ``/user/<user-id>/goals``
-* **GET** ``/user/<user-id>/runs``
+**PUT** ``/users/<user_id>`` {telegram_user_id,  telegram_chat_id}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* **GET** ``/user/<user-id>/access-token``
-* **POST** ``/user/<user-id>/runs``
+**GET** ``/goal-types``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**GET** ``/goal-types/<goal-type>``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**GET** ``/user-id/<telegram-id>``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**PUT** ``/users/<user-id>/goals/<goal-type>`` {value}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**GET** ``/user/<user-id>/goals``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Gets all the goals for the specified user.
+
+**GET** ``/user/<user-id>/runs``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Gets all the recent runs for the specified user.
+
+	**Parameters**:
+
+	====================   ============================================
+	**startDate**          **integer** |br| UNIX timestamp.          
+	====================   ============================================
+
+	**Output**:
+
+	====================   =====================================
+	**status**             **string** |br| 
+	                       ERROR if there was a problem. 
+	                       |br| OK otherwise.
+	**error**              **string** |br|
+	                       Message describing encountered
+	                       errors.
+	**results**            **Array** of `Run`         
+	====================   =====================================
+
+	Run object:
+
+	====================   ============================================
+	**id**                 **integer**
+	**distance**           **float** |br| meters
+	**calories**           **float** |br| kilocalories
+	**startDate**          **time string**
+	**moving_time**        **integer** |br| seconds               
+	**elevation_gain**     **float** |br| meters                   
+	**max_speed**          **float** |br| meters per second              
+	**avg_speed**          **float** |br| meters per second              
+	====================   ============================================
+
+**GET** ``/user/<user-id>/access-token``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Gets the Strava authorization token for a specific user.
+
+	No input.
+
+	**Output**:
+
+	====================   =====================================
+	**status**             **string** |br| 
+	                       ERROR if there was a problem. 
+	                       |br| OK otherwise.
+	**error**              **string** |br|
+	                       Message describing encountered
+	                       errors.
+	**token**              **string** |br| access token.         
+	====================   =====================================
+
+**POST** ``/user/<user-id>/runs``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Saves the passed run information in the RUN_HISTORY table.
+
+	**Parameters**:
+
+	====================   ============================================
+	**distance**           **float** |br| meters
+	**calories**           **float** |br| kilocalories
+	**startDate**          **time string**
+	**moving_time**        **integer** |br| seconds               
+	**elevation_gain**     **float** |br| meters                   
+	**max_speed**          **float** |br| meters per second              
+	**avg_speed**          **float** |br| meters per second              
+	====================   ============================================
+
+	**Output**:
+
+	====================   =====================================
+	**status**             **string** |br| 
+	                       ERROR if there was a problem. 
+	                       |br| OK otherwise.
+	**error**              **string** |br|
+	                       Message describing encountered
+	                       errors.
+	====================   =====================================
 
 Adapter Services (REST)
 ------------------------
@@ -71,6 +164,29 @@ Adapter Services (REST)
 
 Connects to instagram and gets latest pics that match a tag name.
 
+	**Parameters**:
+
+	====================   ============================================
+	**tag**                **string** |br| Instagram tag to search for.
+	**limit**              **integer** `optional` |br| Max 
+	                       images to
+	                       retrieve. Default is 5.
+	====================   ============================================
+
+	**Output**:
+
+	====================   =====================================
+	**status**             **string** |br| 
+	                       ERROR if there was a problem. 
+	                       |br| OK otherwise.
+	**resuts**             **Array** of `Images`
+	**error**              **string** |br|
+	                       Message describing encountered
+	                       errors.
+	**results.url**        **string** |br| path to image.
+	**results.thumbUrl**   **string** |br| path to thumbnail.
+	====================   =====================================
+	
 	**Sample input**:
 
 	.. code-block:: json
@@ -103,6 +219,20 @@ Gets a random inspirational quote.
 
 	No input
 
+	**Output**:
+
+	========================   =====================================
+	**status**                 **string** |br| 
+	                           ERROR if there was a problem. 
+	                           |br| OK otherwise.
+	**resut**                  **Object** 
+	**error**                  **string** |br|
+	                           Message describing encountered
+	                           errors.
+	**result.access_token**    **string** |br| Authentication token
+	**result.athlete**         **Object** |br| User profile
+	========================   =====================================
+
 	**Sample output**:
 
 	.. code-block:: json
@@ -110,10 +240,10 @@ Gets a random inspirational quote.
 		{
 			"status": "OK|ERROR",
 			"result": 
-				{
-					"quote":"There is time for everything, except for losing time.",
-					"author":"Anonymous"
-			]
+			{
+				"quote":"There is time for everything, except for losing time.",
+				"author":"Anonymous"
+			}
 		}
 
 **GET** ``/strava-user-data/<code>``
@@ -126,27 +256,21 @@ Connects to Strava, through a POST request to retrieve the user access token, an
 	**Output**:
 
 	====================   =====================================
-	**status**             **String** |br| 
+	**status**             **string** |br| 
 	                       ERROR if the request encountered a
 	                       problem. 
 	                       |br| OK otherwise.
 	**resut**              **Object** AthleteProfile
-	**error**              **String** |br|
+	**error**              **string** |br|
 	                       Message describing encountered
 	                       errors.
 	====================   =====================================
 
 	AthleteProfile:
+
 	========================   =====================================
-	**access_token**           **float** |br| meters
-	**moving_time**            **integer** |br| seconds
-	**total_elevation_gain**   **float** |br| meters
-	**start_date**             **time string**
-	**start_date_local**       **time string**
-	**timezone**               **string**
-	**average_speed**          **float** |br| meters per second
-	**max_speed**              **float** |br| meters per second
-	**calories**               **float** |br| kilocalories
+	**access_token**           **string** |br| Authentication token
+	**athlete**                **Object** |br| User profile
 	========================   =====================================
 
 	**Sample output**:
@@ -158,31 +282,32 @@ Connects to Strava, through a POST request to retrieve the user access token, an
 			"result": {
 				"access_token": "83ebeabdec09f6670863766f792ead24d61fe3f9",
 				"athlete": {
-				"id": 227615,
-				"resource_state": 3,
-				"firstname": "John",
-				"lastname": "Applestrava",
-				"profile_medium": "http://pics.com/227615/medium.jpg",
-				"profile": "http://pics.com/227615/large.jpg",
-				"city": "San Francisco",
-				"state": "California",
-				"country": "United States",
-				"sex": "M",
-				"friend": null,
-				"follower": null,
-				"premium": true,
-				"created_at": "2008-01-01T17:44:00Z",
-				"updated_at": "2013-09-04T20:00:50Z",
-				"follower_count": 273,
-				"friend_count": 19,
-				"mutual_friend_count": 0,
-				"date_preference": "%m/%d/%Y",
-				"measurement_preference": "feet",
-				"email": "john@applestrava.com",
-				"clubs": [ ],
-				"bikes": [ ],
-				"shoes": [ ]
-			  }
+					"id": 227615,
+					"resource_state": 3,
+					"firstname": "John",
+					"lastname": "Applestrava",
+					"profile_medium": "http://pics.com/227615/medium.jpg",
+					"profile": "http://pics.com/227615/large.jpg",
+					"city": "San Francisco",
+					"state": "California",
+					"country": "United States",
+					"sex": "M",
+					"friend": null,
+					"follower": null,
+					"premium": true,
+					"created_at": "2008-01-01T17:44:00Z",
+					"updated_at": "2013-09-04T20:00:50Z",
+					"follower_count": 273,
+					"friend_count": 19,
+					"mutual_friend_count": 0,
+					"date_preference": "%m/%d/%Y",
+					"measurement_preference": "feet",
+					"email": "john@applestrava.com",
+					"clubs": [ ],
+					"bikes": [ ],
+					"shoes": [ ]
+				  }
+			}		
 		}
 
 **GET** ``/recent-runs/<accessToken>`` 
@@ -201,12 +326,12 @@ Connects, and gets latest run information.
 	**Output**:
 
 	====================   =====================================
-	**status**             **String** |br| 
+	**status**             **string** |br| 
 	                       ERROR if there was a problem
 	                       connecting to Strava. 
 	                       |br| OK otherwise.
 	**resuts**             **Array** of `Run`
-	**error**              **String** |br|
+	**error**              **string** |br|
 	                       Message describing encountered
 	                       errors.
 	====================   =====================================

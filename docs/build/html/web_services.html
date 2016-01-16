@@ -88,7 +88,21 @@
 <li class="toctree-l2"><a class="reference internal" href="#process-centric-services-soap">Process Centric Services (SOAP)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#business-logic-services-rest">Business Logic Services (REST)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#storage-services-rest">Storage Services (REST)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#local-database-services-rest">Local Database Services (REST)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#local-database-services-rest">Local Database Services (REST)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#post-users-params-validation-code-strava-auth-code"><strong>POST</strong> <code class="docutils literal"><span class="pre">/users</span></code> {Params: validation_code, strava_auth_code}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-users-params-validation-code"><strong>GET</strong> <code class="docutils literal"><span class="pre">/users</span></code> {Params: validation_code}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#put-users-user-id"><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user_id&gt;</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#put-users-user-id-telegram-user-id-telegram-chat-id"><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user_id&gt;</span></code> {telegram_user_id,  telegram_chat_id}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-goal-types"><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-goal-types-goal-type"><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types/&lt;goal-type&gt;</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-user-id-telegram-id"><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;telegram-id&gt;</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#put-users-user-id-goals-goal-type-value"><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/goals/&lt;goal-type&gt;</span></code> {value}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-user-user-id-goals"><strong>GET</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/goals</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-user-user-id-runs"><strong>GET</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/runs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-user-user-id-access-token"><strong>GET</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/access-token</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-user-user-id-runs"><strong>POST</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/runs</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#adapter-services-rest">Adapter Services (REST)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#get-instagram-pics"><strong>GET</strong> <code class="docutils literal"><span class="pre">/instagram-pics</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-motivation-quote"><strong>GET</strong> <code class="docutils literal"><span class="pre">/motivation-quote</span></code></a></li>
@@ -185,20 +199,190 @@
 </div>
 <div class="section" id="local-database-services-rest">
 <h2>Local Database Services (REST)<a class="headerlink" href="#local-database-services-rest" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><strong>POST</strong> <code class="docutils literal"><span class="pre">/users</span></code> {Params: validation_code, strava_auth_code}</li>
-<li><strong>GET</strong> <code class="docutils literal"><span class="pre">/users</span></code> {Params: validation_code}</li>
-<li><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user_id&gt;</span></code></li>
-<li><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user_id&gt;</span></code> {telegram_user_id,  telegram_chat_id}</li>
-<li><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types</span></code></li>
-<li><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types/&lt;goal-type&gt;</span></code></li>
-<li><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;telegram-id&gt;</span></code></li>
-<li><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/goals/&lt;goal-type&gt;</span></code> {value}</li>
-<li><strong>GET</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/goals</span></code></li>
-<li><strong>GET</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/runs</span></code></li>
-<li><strong>GET</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/access-token</span></code></li>
-<li><strong>POST</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/runs</span></code></li>
-</ul>
+<div class="section" id="post-users-params-validation-code-strava-auth-code">
+<h3><strong>POST</strong> <code class="docutils literal"><span class="pre">/users</span></code> {Params: validation_code, strava_auth_code}<a class="headerlink" href="#post-users-params-validation-code-strava-auth-code" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="get-users-params-validation-code">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/users</span></code> {Params: validation_code}<a class="headerlink" href="#get-users-params-validation-code" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="put-users-user-id">
+<h3><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user_id&gt;</span></code><a class="headerlink" href="#put-users-user-id" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="put-users-user-id-telegram-user-id-telegram-chat-id">
+<h3><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user_id&gt;</span></code> {telegram_user_id,  telegram_chat_id}<a class="headerlink" href="#put-users-user-id-telegram-user-id-telegram-chat-id" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="get-goal-types">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types</span></code><a class="headerlink" href="#get-goal-types" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="get-goal-types-goal-type">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types/&lt;goal-type&gt;</span></code><a class="headerlink" href="#get-goal-types-goal-type" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="get-user-id-telegram-id">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;telegram-id&gt;</span></code><a class="headerlink" href="#get-user-id-telegram-id" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="put-users-user-id-goals-goal-type-value">
+<h3><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/goals/&lt;goal-type&gt;</span></code> {value}<a class="headerlink" href="#put-users-user-id-goals-goal-type-value" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="get-user-user-id-goals">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/goals</span></code><a class="headerlink" href="#get-user-user-id-goals" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="get-user-user-id-runs">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/runs</span></code><a class="headerlink" href="#get-user-user-id-runs" title="Permalink to this headline">¶</a></h3>
+<p>Gets all the recent runs for the specified user.</p>
+<blockquote>
+<div><p><strong>Parameters</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>startDate</strong></td>
+<td><strong>integer</strong> <br /> UNIX timestamp.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>status</strong></td>
+<td><strong>string</strong> <br />
+ERROR if there was a problem.
+<br /> OK otherwise.</td>
+</tr>
+<tr class="row-even"><td><strong>error</strong></td>
+<td><strong>string</strong> <br />
+Message describing encountered
+errors.</td>
+</tr>
+<tr class="row-odd"><td><strong>results</strong></td>
+<td><strong>Array</strong> of <cite>Run</cite></td>
+</tr>
+</tbody>
+</table>
+<p>Run object:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>id</strong></td>
+<td><strong>integer</strong></td>
+</tr>
+<tr class="row-even"><td><strong>distance</strong></td>
+<td><strong>float</strong> <br /> meters</td>
+</tr>
+<tr class="row-odd"><td><strong>calories</strong></td>
+<td><strong>float</strong> <br /> kilocalories</td>
+</tr>
+<tr class="row-even"><td><strong>startDate</strong></td>
+<td><strong>time string</strong></td>
+</tr>
+<tr class="row-odd"><td><strong>moving_time</strong></td>
+<td><strong>integer</strong> <br /> seconds</td>
+</tr>
+<tr class="row-even"><td><strong>elevation_gain</strong></td>
+<td><strong>float</strong> <br /> meters</td>
+</tr>
+<tr class="row-odd"><td><strong>max_speed</strong></td>
+<td><strong>float</strong> <br /> meters per second</td>
+</tr>
+<tr class="row-even"><td><strong>avg_speed</strong></td>
+<td><strong>float</strong> <br /> meters per second</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="get-user-user-id-access-token">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/access-token</span></code><a class="headerlink" href="#get-user-user-id-access-token" title="Permalink to this headline">¶</a></h3>
+<p>Gets the Strava authorization token for a specific user.</p>
+<blockquote>
+<div><p>No input.</p>
+<p><strong>Output</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>status</strong></td>
+<td><strong>string</strong> <br />
+ERROR if there was a problem.
+<br /> OK otherwise.</td>
+</tr>
+<tr class="row-even"><td><strong>error</strong></td>
+<td><strong>string</strong> <br />
+Message describing encountered
+errors.</td>
+</tr>
+<tr class="row-odd"><td><strong>token</strong></td>
+<td><strong>string</strong> <br /> access token.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="post-user-user-id-runs">
+<h3><strong>POST</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/runs</span></code><a class="headerlink" href="#post-user-user-id-runs" title="Permalink to this headline">¶</a></h3>
+<p>Saves the passed run information in the RUN_HISTORY table.</p>
+<blockquote>
+<div><p><strong>Parameters</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>distance</strong></td>
+<td><strong>float</strong> <br /> meters</td>
+</tr>
+<tr class="row-even"><td><strong>calories</strong></td>
+<td><strong>float</strong> <br /> kilocalories</td>
+</tr>
+<tr class="row-odd"><td><strong>startDate</strong></td>
+<td><strong>time string</strong></td>
+</tr>
+<tr class="row-even"><td><strong>moving_time</strong></td>
+<td><strong>integer</strong> <br /> seconds</td>
+</tr>
+<tr class="row-odd"><td><strong>elevation_gain</strong></td>
+<td><strong>float</strong> <br /> meters</td>
+</tr>
+<tr class="row-even"><td><strong>max_speed</strong></td>
+<td><strong>float</strong> <br /> meters per second</td>
+</tr>
+<tr class="row-odd"><td><strong>avg_speed</strong></td>
+<td><strong>float</strong> <br /> meters per second</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>status</strong></td>
+<td><strong>string</strong> <br />
+ERROR if there was a problem.
+<br /> OK otherwise.</td>
+</tr>
+<tr class="row-even"><td><strong>error</strong></td>
+<td><strong>string</strong> <br />
+Message describing encountered
+errors.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
 </div>
 <div class="section" id="adapter-services-rest">
 <h2>Adapter Services (REST)<a class="headerlink" href="#adapter-services-rest" title="Permalink to this headline">¶</a></h2>
@@ -206,7 +390,52 @@
 <h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/instagram-pics</span></code><a class="headerlink" href="#get-instagram-pics" title="Permalink to this headline">¶</a></h3>
 <p>Connects to instagram and gets latest pics that match a tag name.</p>
 <blockquote>
-<div><p><strong>Sample input</strong>:</p>
+<div><p><strong>Parameters</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>tag</strong></td>
+<td><strong>string</strong> <br /> Instagram tag to search for.</td>
+</tr>
+<tr class="row-even"><td><strong>limit</strong></td>
+<td><strong>integer</strong> <cite>optional</cite> <br /> Max
+images to
+retrieve. Default is 5.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>status</strong></td>
+<td><strong>string</strong> <br />
+ERROR if there was a problem.
+<br /> OK otherwise.</td>
+</tr>
+<tr class="row-even"><td><strong>resuts</strong></td>
+<td><strong>Array</strong> of <cite>Images</cite></td>
+</tr>
+<tr class="row-odd"><td><strong>error</strong></td>
+<td><strong>string</strong> <br />
+Message describing encountered
+errors.</td>
+</tr>
+<tr class="row-even"><td><strong>results.url</strong></td>
+<td><strong>string</strong> <br /> path to image.</td>
+</tr>
+<tr class="row-odd"><td><strong>results.thumbUrl</strong></td>
+<td><strong>string</strong> <br /> path to thumbnail.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample input</strong>:</p>
 <div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
         <span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;tagName&quot;</span><span class="p">,</span>
         <span class="nt">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">5</span>
@@ -234,15 +463,43 @@
 <p>Gets a random inspirational quote.</p>
 <blockquote>
 <div><p>No input</p>
+<p><strong>Output</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>status</strong></td>
+<td><strong>string</strong> <br />
+ERROR if there was a problem.
+<br /> OK otherwise.</td>
+</tr>
+<tr class="row-even"><td><strong>resut</strong></td>
+<td><strong>Object</strong></td>
+</tr>
+<tr class="row-odd"><td><strong>error</strong></td>
+<td><strong>string</strong> <br />
+Message describing encountered
+errors.</td>
+</tr>
+<tr class="row-even"><td><strong>result.access_token</strong></td>
+<td><strong>string</strong> <br /> Authentication token</td>
+</tr>
+<tr class="row-odd"><td><strong>result.athlete</strong></td>
+<td><strong>Object</strong> <br /> User profile</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Sample output</strong>:</p>
-<div class="highlight-json"><div class="highlight"><pre>{
-        &quot;status&quot;: &quot;OK|ERROR&quot;,
-        &quot;result&quot;:
-                {
-                        &quot;quote&quot;:&quot;There is time for everything, except for losing time.&quot;,
-                        &quot;author&quot;:&quot;Anonymous&quot;
-        ]
-}
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK|ERROR&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;result&quot;</span><span class="p">:</span>
+        <span class="p">{</span>
+                <span class="nt">&quot;quote&quot;</span><span class="p">:</span><span class="s2">&quot;There is time for everything, except for losing time.&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="s2">&quot;Anonymous&quot;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -252,37 +509,76 @@
 <p>Connects to Strava, through a POST request to retrieve the user access token, and the user profile. Returns it.</p>
 <blockquote>
 <div><p>No input</p>
+<p><strong>Output</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>status</strong></td>
+<td><strong>string</strong> <br />
+ERROR if the request encountered a
+problem.
+<br /> OK otherwise.</td>
+</tr>
+<tr class="row-even"><td><strong>resut</strong></td>
+<td><strong>Object</strong> AthleteProfile</td>
+</tr>
+<tr class="row-odd"><td><strong>error</strong></td>
+<td><strong>string</strong> <br />
+Message describing encountered
+errors.</td>
+</tr>
+</tbody>
+</table>
+<p>AthleteProfile:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>access_token</strong></td>
+<td><strong>string</strong> <br /> Authentication token</td>
+</tr>
+<tr class="row-even"><td><strong>athlete</strong></td>
+<td><strong>Object</strong> <br /> User profile</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Sample output</strong>:</p>
 <div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
         <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
         <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;access_token&quot;</span><span class="p">:</span> <span class="s2">&quot;83ebeabdec09f6670863766f792ead24d61fe3f9&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;athlete&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">227615</span><span class="p">,</span>
-                <span class="nt">&quot;resource_state&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-                <span class="nt">&quot;firstname&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;lastname&quot;</span><span class="p">:</span> <span class="s2">&quot;Applestrava&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;profile_medium&quot;</span><span class="p">:</span> <span class="s2">&quot;http://pics.com/227615/medium.jpg&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;http://pics.com/227615/large.jpg&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;California&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;United States&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;sex&quot;</span><span class="p">:</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;friend&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-                <span class="nt">&quot;follower&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-                <span class="nt">&quot;premium&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2008-01-01T17:44:00Z&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-09-04T20:00:50Z&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;follower_count&quot;</span><span class="p">:</span> <span class="mi">273</span><span class="p">,</span>
-                <span class="nt">&quot;friend_count&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
-                <span class="nt">&quot;mutual_friend_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="nt">&quot;date_preference&quot;</span><span class="p">:</span> <span class="s2">&quot;%m/%d/%Y&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;measurement_preference&quot;</span><span class="p">:</span> <span class="s2">&quot;feet&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;john@applestrava.com&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;clubs&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
-                <span class="nt">&quot;bikes&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
-                <span class="nt">&quot;shoes&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">]</span>
-          <span class="p">}</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">227615</span><span class="p">,</span>
+                        <span class="nt">&quot;resource_state&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                        <span class="nt">&quot;firstname&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;lastname&quot;</span><span class="p">:</span> <span class="s2">&quot;Applestrava&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;profile_medium&quot;</span><span class="p">:</span> <span class="s2">&quot;http://pics.com/227615/medium.jpg&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;http://pics.com/227615/large.jpg&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;California&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;United States&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;sex&quot;</span><span class="p">:</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;friend&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                        <span class="nt">&quot;follower&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+                        <span class="nt">&quot;premium&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2008-01-01T17:44:00Z&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-09-04T20:00:50Z&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;follower_count&quot;</span><span class="p">:</span> <span class="mi">273</span><span class="p">,</span>
+                        <span class="nt">&quot;friend_count&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+                        <span class="nt">&quot;mutual_friend_count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="nt">&quot;date_preference&quot;</span><span class="p">:</span> <span class="s2">&quot;%m/%d/%Y&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;measurement_preference&quot;</span><span class="p">:</span> <span class="s2">&quot;feet&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;john@applestrava.com&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;clubs&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
+                        <span class="nt">&quot;bikes&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">],</span>
+                        <span class="nt">&quot;shoes&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">]</span>
+                  <span class="p">}</span>
+        <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -313,8 +609,8 @@ this.</td>
 <col width="65%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><strong>result</strong></td>
-<td><strong>String</strong> <br />
+<tr class="row-odd"><td><strong>status</strong></td>
+<td><strong>string</strong> <br />
 ERROR if there was a problem
 connecting to Strava.
 <br /> OK otherwise.</td>
@@ -323,7 +619,7 @@ connecting to Strava.
 <td><strong>Array</strong> of <cite>Run</cite></td>
 </tr>
 <tr class="row-odd"><td><strong>error</strong></td>
-<td><strong>String</strong> <br />
+<td><strong>string</strong> <br />
 Message describing encountered
 errors.</td>
 </tr>
@@ -373,7 +669,7 @@ errors.</td>
 </div>
 <p><strong>Sample output</strong>:</p>
 <div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
-        <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
         <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
                         <span class="nt">&quot;distance&quot;</span><span class="p">:</span> <span class="mf">32486.1</span><span class="p">,</span>
