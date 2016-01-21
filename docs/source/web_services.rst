@@ -20,26 +20,255 @@ Given a user_id checks the user’s progress with regards to his goals.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Given a user_id fetches new runs from Strava and checks if any goals are met.
 
+
+
+
 Business Logic Services (REST)
 -------------------------------
 
-**GET** ``/goal-types/<goal-type>``
+**GET** ``/goal-types``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	Gets all the valid goal types.
+
+	No input
+
+	**Output**:
+
+	====================   =====================================
+	**status**             **string** |br| 
+	                       ERROR if there was a problem. 
+	                       |br| OK otherwise.
+	**resuts**             **Array** of `Goal Type` |br|
+						   Each string is a goal type.
+	**error**              **string** |br|
+	                       Message describing encountered
+	                       errors.
+	====================   =====================================
+	
+	**Sample output**:
+
+	.. code-block:: json
+
+		{
+			"status": "OK",
+			"results": [
+				{
+					"id": "distance",
+					"name": "Distance"
+				},
+				{	"id": "calories",
+					"name": "Calories"
+				},
+				{
+					"id": "max_speed",
+					"name": "Maximum speed"
+				}
+			]
+		}
 
 **GET** ``/goal-types/<goal-type>``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	Gets the definition of a specific goal type.
+
+	No input.
+
+	**Output**:
+
+	====================   =====================================
+	**status**             **string** |br| 
+	                       ERROR if there was a problem. 
+	                       |br| OK otherwise.
+	**error**              **string** |br|
+	                       Message describing encountered
+	                       errors.
+	**id**                 **string**
+	**name**               **string**
+	**units**              **string**
+	====================   =====================================
+	
+	**Sample output**:
+
+	.. code-block:: json
+
+		{
+			"status": "OK",
+			"id": "max_speed",
+			"name": "Maximum Speed",
+			"units": "km/h"
+		}
 
 **GET** ``/user-id/<telegram-id>``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	Given a user's telegram id, returns the corresponding user id.
+
+	No input.
+
+	**Output**:
+
+	====================   =====================================
+	**status**             **string** |br| 
+	                       ERROR if there was a problem. 
+	                       |br| OK otherwise.
+	**error**              **string** |br|
+	                       Message describing encountered
+	                       errors.
+	**id**                 **integer**
+	====================   =====================================
+	
+	**Sample output**:
+
+	.. code-block:: json
+
+		{
+			"status": "OK",
+			"id": 5
+		}
+
 
 **GET** ``/users/<user-id>/goal-status``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	Returns the status for all the user's goals in the current period.
 
-**POST** ``/users`` {Params: validation_code, strava_auth_code}
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	No input.
 
-**PUT** ``/users/<user-id>`` {telegram_user_id, telegram_chat_id}
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	**Output**:
+
+	====================   =====================================
+	**status**             **string** |br| 
+	                       ERROR if there was a problem. 
+	                       |br| OK otherwise.
+	**error**              **string** |br|
+	                       Message describing encountered
+	                       errors.
+	**goalStatus**         **Array of `GoalStatus`**
+	====================   =====================================
+	
+	GoalStatus object:
+
+	====================   ======================================
+	**type**               **string** |br| Goal id
+	**name**               **string** |br| Goal name 
+	                       (e.g. Distance, Max. Speed)
+	**units**              **string**         
+	**target**             **float** |br| The ammount the user 
+	                       wants to achieve in total.
+	**period**             **string**
+	                       e.g. daily, weekly
+	**periodStart**        **integer** |br| UNIX epoch timestamp.
+	**periodEnd**          **integer** |br| UNIX epoch timestamp.             
+	**goalMet**            **boolean** 
+	**count**              **float** |br|
+	                       How much user already accumulated for
+	                       goal.
+	====================   ======================================
+
+	**Sample output**:
+
+	.. code-block:: json
+
+		{
+			"status": "OK",
+			"goalStatus": [
+				{
+					"type": "distance",
+					"name": "Distance",
+					"units": "m"
+					"target": 5000.00
+					"period": "weekly",
+					"periodStart": 1452941107,
+					"periodEnd": 1453545907
+					"goalMet": false,
+					"count": 3500.00
+				}
+			]
+		}
+
+
+**POST** ``/users`` 
+^^^^^^^^^^^^^^^^^^^^
+
+	Method called by the strava registration callback url, to save the auth_code, with which
+	a authorization_token can later be generated.
+
+	It returns a short validation code which should be entered by the user in the telegram
+	conversation, to proof that it was he who authorized Strave in the browser.
+
+	HTTP Status code: 200, 404 (Code not found) 
+
+	**Parameters**
+
+	====================   ===============================================================
+	**strava_auth_code**   **string** |br| 
+	                       Check `Strava API 
+	                       <https://strava.github.io/api/v3/oauth/#post-token>`_.      
+	====================   ===============================================================
+
+
+	**Output**:
+
+	====================   =====================================
+	**status**             **string** |br| 
+	                       ERROR if there was a problem. 
+	                       |br| OK otherwise.
+	**error**              **string** |br|
+	                       Message describing encountered
+	                       errors.
+	**validationCode**     **string**                       
+	====================   =====================================
+
+	**Sample output**:
+
+	.. code-block:: json
+
+		{
+			"status": "OK",
+			"validationCode": "x65rtq"
+		}
+
+
+**PUT** ``/users/<user-id>`` 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+	Update a user's profile with his telegram user credentials.
+
+	HTTP status code: 200 (OK), 400 (User doesn't exist)
+
+	**Parameters**:
+	
+	====================   ===============================================================
+	**telegram_user_id**   **integer** |br| 
+	                       Check `Telegram User 
+	                       <https://core.telegram.org/bots/api#user>`_. 
+	**telegram_chat_id**   **integer** |br| 			
+	                       Check `Telegram Chat
+	                       <https://core.telegram.org/bots/api#chat>`_.     
+	====================   ===============================================================
+
+
+	**Output**:
+
+	====================   =====================================
+	**status**             **string** |br| 
+	                       ERROR if there was a problem. 
+	                       |br| OK otherwise.
+	**error**              **string** |br|
+	                       Message describing encountered
+	                       errors.                  
+	====================   =====================================
+
+	**Sample output**:
+
+	.. code-block:: json
+
+		{
+			"status": "OK",
+		}
+
+
+
+
+
+		
 
 Storage Services (REST)
 ------------------------
