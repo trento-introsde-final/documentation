@@ -440,10 +440,7 @@ goal.</td>
 <div class="section" id="post-users">
 <h3><strong>POST</strong> <code class="docutils literal"><span class="pre">/users</span></code><a class="headerlink" href="#post-users" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p>Method called by the strava registration callback url, to save the auth_code, with which
-a authorization_token can later be generated.</p>
-<p>It returns a short validation code which should be entered by the user in the telegram
-conversation, to proof that it was he who authorized Strave in the browser.</p>
+<div><p>Creates a new user</p>
 <p>HTTP Status code: 200, 404 (Code not found)</p>
 <p><strong>Parameters</strong></p>
 <table border="1" class="docutils">
@@ -452,9 +449,8 @@ conversation, to proof that it was he who authorized Strave in the browser.</p>
 <col width="76%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><strong>strava_auth_code</strong></td>
-<td><strong>string</strong> <br />
-Check <a class="reference external" href="https://strava.github.io/api/v3/oauth/#post-token">Strava API</a>.</td>
+<tr class="row-odd"><td><strong>slack_user_id</strong></td>
+<td><strong>string</strong> <br /></td>
 </tr>
 </tbody>
 </table>
@@ -475,15 +471,11 @@ ERROR if there was a problem.
 Message describing encountered
 errors.</td>
 </tr>
-<tr class="row-odd"><td><strong>validationCode</strong></td>
-<td><strong>string</strong></td>
-</tr>
 </tbody>
 </table>
 <p><strong>Sample output</strong>:</p>
 <div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
         <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;validationCode&quot;</span><span class="p">:</span> <span class="s2">&quot;x65rtq&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -492,7 +484,7 @@ errors.</td>
 <div class="section" id="put-users-user-id">
 <h3><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;</span></code><a class="headerlink" href="#put-users-user-id" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p>Update a user&#8217;s profile with his telegram user credentials.</p>
+<div><p>Update a user&#8217;s profile with his slack user credentials.</p>
 <p>HTTP status code: 200 (OK), 400 (User doesn&#8217;t exist)</p>
 <p><strong>Parameters</strong>:</p>
 <table border="1" class="docutils">
@@ -501,13 +493,9 @@ errors.</td>
 <col width="76%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><strong>telegram_user_id</strong></td>
+<tr class="row-odd"><td><strong>slack_user_id</strong></td>
 <td><strong>integer</strong> <br />
-Check <a class="reference external" href="https://core.telegram.org/bots/api#user">Telegram User</a>.</td>
-</tr>
-<tr class="row-even"><td><strong>telegram_chat_id</strong></td>
-<td><strong>integer</strong> <br />
-Check <a class="reference external" href="https://core.telegram.org/bots/api#chat">Telegram Chat</a>.</td>
+Check <a class="reference external" href="https://api.slack.com/">Slack API</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -778,38 +766,36 @@ errors.</td>
 </tbody>
 </table>
 <blockquote>
-<div>No output</div></blockquote>
+<div><p><strong>Output</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>status</strong></td>
+<td><strong>string</strong> <br />
+ERROR if there was a problem.
+<br /> OK otherwise.</td>
+</tr>
+<tr class="row-even"><td><strong>error</strong></td>
+<td><strong>string</strong> <br />
+Message describing encountered
+errors.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample output</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK|ERROR&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
 </div></blockquote>
 </div>
 <div class="section" id="id4">
 <h3><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user_id&gt;</span></code><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><p>Performs a partial update on the user&#8217;s fields. Either his profile data,
-or his telegram identifiers. Only the passed fields are updated. The user
-identified by &lt;user_id&gt; must already exist.</p>
-<p><strong>Parameters</strong>:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="39%" />
-<col width="61%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>slack_user_id</strong></td>
-<td><strong>string</strong></td>
-</tr>
-<tr class="row-even"><td><strong>email</strong></td>
-<td><strong>string</strong></td>
-</tr>
-<tr class="row-odd"><td><strong>firstname</strong></td>
-<td><strong>string</strong></td>
-</tr>
-<tr class="row-even"><td><strong>lastname</strong></td>
-<td><strong>string</strong></td>
-</tr>
-</tbody>
-</table>
-<p>No output.</p>
-</div></blockquote>
 </div>
 <div class="section" id="id5">
 <h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types</span></code><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
@@ -975,6 +961,19 @@ errors.</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Sample input</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+        <span class="nt">&quot;period&quot;</span><span class="p">:</span> <span class="s2">&quot;daily&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Sample output</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK|ERROR&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div></blockquote>
 </div>
 <div class="section" id="get-user-user-id-goals">
@@ -999,7 +998,7 @@ ERROR if there was a problem.
 Message describing encountered
 errors.</td>
 </tr>
-<tr class="row-odd"><td><strong>results</strong></td>
+<tr class="row-odd"><td><strong>goals</strong></td>
 <td><strong>Array</strong> of <cite>Goal</cite></td>
 </tr>
 </tbody>
@@ -1034,6 +1033,25 @@ errors.</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Sample output</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre>{
+        &quot;status&quot;: &quot;OK&quot;,
+        &quot;goals&quot;: [
+                {
+                        &quot;id&quot;: 2,
+                        &quot;created&quot;: 1454512708,
+                        &quot;target&quot;: 5000.00,
+                        &quot;measure_type&quot;: &quot;distance&quot;,
+                        &quot;name&quot;: &quot;Distance&quot;,
+                        &quot;units&quot;: &quot;m&quot;,
+                        &quot;period&quot;: &quot;weekly&quot;,
+                        &quot;period_days&quot;: 7
+                },
+                ...
+        ]
+}
+</pre></div>
+</div>
 </div></blockquote>
 </div>
 <div class="section" id="get-user-user-id-runs">
@@ -1069,7 +1087,7 @@ ERROR if there was a problem.
 Message describing encountered
 errors.</td>
 </tr>
-<tr class="row-odd"><td><strong>results</strong></td>
+<tr class="row-odd"><td><strong>runs</strong></td>
 <td><strong>Array</strong> of <cite>Run</cite></td>
 </tr>
 </tbody>
@@ -1107,6 +1125,31 @@ errors.</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Sample input</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nt">&quot;start_date&quot;</span><span class="p">:</span> <span class="mi">1454512708</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Sample output</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre>{
+        &quot;status&quot;: &quot;OK&quot;,
+        &quot;runs&quot;: [
+                {
+                        &quot;id&quot;: 2,
+                        &quot;distance&quot;: 5000,
+                        &quot;calories&quot;: 3000,
+                        &quot;start_date&quot;: 1454512708,
+                        &quot;moving_time&quot;: 1800,
+                        &quot;elevation_gain&quot;: 200,
+                        &quot;max_speed&quot;: 3,
+                        &quot;avg_speed&quot;: 2.5
+                },
+                ...
+        ]
+}
+</pre></div>
+</div>
 </div></blockquote>
 </div>
 <div class="section" id="post-user-user-id-runs">
@@ -1162,6 +1205,24 @@ errors.</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Sample input</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nt">&quot;distance&quot;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+        <span class="nt">&quot;calories&quot;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+        <span class="nt">&quot;start_date&quot;</span><span class="p">:</span> <span class="mi">1454512708</span><span class="p">,</span>
+        <span class="nt">&quot;moving_time&quot;</span><span class="p">:</span> <span class="mi">1800</span><span class="p">,</span>
+        <span class="nt">&quot;elevation_gain&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="nt">&quot;max_speed&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&quot;avg_speed&quot;</span><span class="p">:</span> <span class="mf">2.5</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Sample output</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK|ERROR&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div></blockquote>
 </div>
 </div>
