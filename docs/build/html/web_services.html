@@ -94,7 +94,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#business-logic-services-rest">Business Logic Services (REST)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#get-goal-types"><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-goal-types-goal-type"><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types/&lt;goal-type&gt;</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#get-user-id-telegram-id"><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;telegram-id&gt;</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-user-id-slack-id"><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;slack-id&gt;</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-users-user-id-goal-status"><strong>GET</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/goal-status</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#post-users"><strong>POST</strong> <code class="docutils literal"><span class="pre">/users</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#put-users-user-id"><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;</span></code></a></li>
@@ -106,7 +106,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#post-users-params-validation-code-strava-auth-code"><strong>POST</strong> <code class="docutils literal"><span class="pre">/users</span></code> {Params: validation_code, strava_auth_code}</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-users-params-validation-code"><strong>GET</strong> <code class="docutils literal"><span class="pre">/users</span></code> {Params: validation_code}</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#put-users-user-id-params-telegram-user-id-telegram-chat-id"><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;</span></code> {Params: telegram_user_id, telegram_chat_id}</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3"><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;telegram-id&gt;</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-user-id-telegram-id"><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;telegram-id&gt;</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-users-user-id-runs-params-startdate-enddate"><strong>GET</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/runs</span></code> {Params: startDate, endDate}</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-users-user-id-new-runs-params-startdate"><strong>GET</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/new-runs</span></code> {Params: startDate}</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#post-users-user-id-runs"><strong>POST</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/runs</span></code></a></li>
@@ -117,22 +117,20 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#local-database-services-rest">Local Database Services (REST)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4"><strong>POST</strong> <code class="docutils literal"><span class="pre">/users</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#get-users-code-validation-code"><strong>GET</strong> <code class="docutils literal"><span class="pre">/users?code=&lt;validation_code&gt;</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5"><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user_id&gt;</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6"><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7"><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types/&lt;goal-type&gt;</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8"><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;telegram-id&gt;</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3"><strong>POST</strong> <code class="docutils literal"><span class="pre">/users</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4"><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user_id&gt;</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5"><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6"><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types/&lt;goal-type&gt;</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7"><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;slack-id&gt;</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#put-users-user-id-goals-goal-type"><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/goals/&lt;goal-type&gt;</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-user-user-id-goals"><strong>GET</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/goals</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-user-user-id-runs"><strong>GET</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/runs</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#get-user-user-id-access-token"><strong>GET</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/access-token</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#post-user-user-id-runs"><strong>POST</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/runs</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#adapter-services-rest">Adapter Services (REST)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#get-instagram-pics"><strong>GET</strong> <code class="docutils literal"><span class="pre">/instagram-pics</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9"><strong>GET</strong> <code class="docutils literal"><span class="pre">/motivation-quote</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8"><strong>GET</strong> <code class="docutils literal"><span class="pre">/motivation-quote</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-strava-user-data-auth-code"><strong>GET</strong> <code class="docutils literal"><span class="pre">/strava-user-data/&lt;auth_code&gt;</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-recent-runs-accesstoken"><strong>GET</strong> <code class="docutils literal"><span class="pre">/recent-runs/&lt;accessToken&gt;</span></code></a></li>
 </ul>
@@ -234,6 +232,21 @@ errors.</td>
 </tr>
 </tbody>
 </table>
+<p>GoalType object:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>name</strong></td>
+<td><strong>string</strong> <br /> Goal type name (e.g. &#8216;distance&#8217;, &#8216;calories&#8217;).</td>
+</tr>
+<tr class="row-even"><td><strong>units</strong></td>
+<td><strong>string</strong> <br /> (e.g. &#8216;meters&#8217;, &#8216;kcal&#8217;).</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Sample output</strong>:</p>
 <div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
         <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
@@ -299,10 +312,10 @@ errors.</td>
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="get-user-id-telegram-id">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;telegram-id&gt;</span></code><a class="headerlink" href="#get-user-id-telegram-id" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get-user-id-slack-id">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;slack-id&gt;</span></code><a class="headerlink" href="#get-user-id-slack-id" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p>Given a user&#8217;s telegram id, returns the corresponding user id.</p>
+<div><p>Given a user&#8217;s slack id, returns the corresponding user id.</p>
 <p>No input.</p>
 <p><strong>Output</strong>:</p>
 <table border="1" class="docutils">
@@ -530,184 +543,6 @@ errors.</td>
 <h2>Storage Services (REST)<a class="headerlink" href="#storage-services-rest" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
 <h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="id2">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types/&lt;goal-type&gt;</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="post-users-params-validation-code-strava-auth-code">
-<h3><strong>POST</strong> <code class="docutils literal"><span class="pre">/users</span></code> {Params: validation_code, strava_auth_code}<a class="headerlink" href="#post-users-params-validation-code-strava-auth-code" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="get-users-params-validation-code">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/users</span></code> {Params: validation_code}<a class="headerlink" href="#get-users-params-validation-code" title="Permalink to this headline">¶</a></h3>
-<p>Connects to AdapterServices and retrieves the user data from Strava.</p>
-</div>
-<div class="section" id="put-users-user-id-params-telegram-user-id-telegram-chat-id">
-<h3><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;</span></code> {Params: telegram_user_id, telegram_chat_id}<a class="headerlink" href="#put-users-user-id-params-telegram-user-id-telegram-chat-id" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="id3">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;telegram-id&gt;</span></code><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="get-users-user-id-runs-params-startdate-enddate">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/runs</span></code> {Params: startDate, endDate}<a class="headerlink" href="#get-users-user-id-runs-params-startdate-enddate" title="Permalink to this headline">¶</a></h3>
-<p>Connects to LocalDatabaseService and gets all user’s runs within [startDate, endDate].</p>
-</div>
-<div class="section" id="get-users-user-id-new-runs-params-startdate">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/new-runs</span></code> {Params: startDate}<a class="headerlink" href="#get-users-user-id-new-runs-params-startdate" title="Permalink to this headline">¶</a></h3>
-<p>Connects to LocalDatabaseService to fetch access_token, then fetches latest runs from Strava through the AdapterService, and returns the untracked runs in case there are any.</p>
-</div>
-<div class="section" id="post-users-user-id-runs">
-<h3><strong>POST</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/runs</span></code><a class="headerlink" href="#post-users-user-id-runs" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="get-users-user-id-goals">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/goals</span></code><a class="headerlink" href="#get-users-user-id-goals" title="Permalink to this headline">¶</a></h3>
-<p>Connects to LocalDatabaseService and gets all the goals for the user.</p>
-</div>
-<div class="section" id="put-users-id-goal-goal-type">
-<h3><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;id&gt;/goal/&lt;goal-type&gt;</span></code><a class="headerlink" href="#put-users-id-goal-goal-type" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="get-pretty-pic">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/pretty-pic</span></code><a class="headerlink" href="#get-pretty-pic" title="Permalink to this headline">¶</a></h3>
-<p>Connects to the adapterServices and returns 1 picture url.</p>
-</div>
-<div class="section" id="get-motivation-quote">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/motivation-quote</span></code><a class="headerlink" href="#get-motivation-quote" title="Permalink to this headline">¶</a></h3>
-<p>Connects to the adapterServices and returns 1 motivation quote.</p>
-</div>
-</div>
-<div class="section" id="local-database-services-rest">
-<h2>Local Database Services (REST)<a class="headerlink" href="#local-database-services-rest" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id4">
-<h3><strong>POST</strong> <code class="docutils literal"><span class="pre">/users</span></code><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><p>The user registration is a two-step process that connects our system
-to a user&#8217;s Strava account, and does the association between that and
-the telegram chat the user uses to contact our bot.</p>
-<p>The first step would be when the user authorizes fitbot to access his
-Strava account. At that moment he gets a validation code. When he enters
-this code in the telegram chat, our system will know which strava account
-belongs to him.</p>
-<p>The stravaAuthCode is sent along the callback url after the user
-authorizes our app.</p>
-<p><strong>Parameters</strong>:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="39%" />
-<col width="61%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>strava_auth_code</strong></td>
-<td><strong>string</strong> <br /> Generated by Strava.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Output</strong>:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="34%" />
-<col width="66%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>validation_code</strong></td>
-<td><strong>string</strong> <br /> Short random code.</td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
-</div>
-<div class="section" id="get-users-code-validation-code">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/users?code=&lt;validation_code&gt;</span></code><a class="headerlink" href="#get-users-code-validation-code" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><p>Given a validation code, used by our system to verify a user&#8217;s
-account, get that user&#8217;s profile. In particular, we are interested
-in the strava generated auth_code. With this code, we can get an
-access token for the user and complete the Authorization process.</p>
-<p>No input</p>
-<p><strong>Output</strong>:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="26%" />
-<col width="74%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>results</strong></td>
-<td><strong>array of User</strong> <br /> should only contain one entry.</td>
-</tr>
-</tbody>
-</table>
-<p>User object:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="39%" />
-<col width="61%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>id</strong></td>
-<td><strong>integer</strong></td>
-</tr>
-<tr class="row-even"><td><strong>strava_code</strong></td>
-<td><strong>string</strong> <br /> Code for retrieving
-an access token to Strava.</td>
-</tr>
-<tr class="row-odd"><td><strong>telegram_user_id</strong></td>
-<td><strong>integer</strong></td>
-</tr>
-<tr class="row-even"><td><strong>telegram_chat_id</strong></td>
-<td><strong>integer</strong></td>
-</tr>
-<tr class="row-odd"><td><strong>email</strong></td>
-<td><strong>string</strong></td>
-</tr>
-<tr class="row-even"><td><strong>firstname</strong></td>
-<td><strong>string</strong></td>
-</tr>
-<tr class="row-odd"><td><strong>lastname</strong></td>
-<td><strong>string</strong></td>
-</tr>
-<tr class="row-even"><td><strong>strava_access_token</strong></td>
-<td><strong>string</strong></td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
-</div>
-<div class="section" id="id5">
-<h3><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user_id&gt;</span></code><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><p>Performs a partial update on the user&#8217;s fields. Either his profile data,
-or his telegram identifiers. Only the passed fields are updated. The user
-identified by &lt;user_id&gt; must already exist.</p>
-<p><strong>Parameters</strong>:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="39%" />
-<col width="61%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>telegram_user_id</strong></td>
-<td><strong>integer</strong></td>
-</tr>
-<tr class="row-even"><td><strong>telegram_chat_id</strong></td>
-<td><strong>integer</strong></td>
-</tr>
-<tr class="row-odd"><td><strong>email</strong></td>
-<td><strong>string</strong></td>
-</tr>
-<tr class="row-even"><td><strong>firstname</strong></td>
-<td><strong>string</strong></td>
-</tr>
-<tr class="row-odd"><td><strong>lastname</strong></td>
-<td><strong>string</strong></td>
-</tr>
-<tr class="row-even"><td><strong>strava_access_token</strong></td>
-<td><strong>string</strong></td>
-</tr>
-</tbody>
-</table>
-<p>No output.</p>
-</div></blockquote>
-</div>
-<div class="section" id="id6">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types</span></code><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>No input.</p>
 <p><strong>Output</strong>:</p>
@@ -749,8 +584,8 @@ errors.</td>
 </table>
 </div></blockquote>
 </div>
-<div class="section" id="id7">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types/&lt;goal-type&gt;</span></code><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types/&lt;goal-type&gt;</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>No input.</p>
 <p><strong>Output</strong>:</p>
@@ -777,9 +612,307 @@ errors.</td>
 </table>
 </div></blockquote>
 </div>
-<div class="section" id="id8">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;telegram-id&gt;</span></code><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
-<p>Given the telegram identifier of the user, returns the corresponding id used by
+<div class="section" id="post-users-params-validation-code-strava-auth-code">
+<h3><strong>POST</strong> <code class="docutils literal"><span class="pre">/users</span></code> {Params: validation_code, strava_auth_code}<a class="headerlink" href="#post-users-params-validation-code-strava-auth-code" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="get-users-params-validation-code">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/users</span></code> {Params: validation_code}<a class="headerlink" href="#get-users-params-validation-code" title="Permalink to this headline">¶</a></h3>
+<p>Connects to AdapterServices and retrieves the user data from Strava.</p>
+</div>
+<div class="section" id="put-users-user-id-params-telegram-user-id-telegram-chat-id">
+<h3><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;</span></code> {Params: telegram_user_id, telegram_chat_id}<a class="headerlink" href="#put-users-user-id-params-telegram-user-id-telegram-chat-id" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="get-user-id-telegram-id">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;telegram-id&gt;</span></code><a class="headerlink" href="#get-user-id-telegram-id" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="get-users-user-id-runs-params-startdate-enddate">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/runs</span></code> {Params: startDate, endDate}<a class="headerlink" href="#get-users-user-id-runs-params-startdate-enddate" title="Permalink to this headline">¶</a></h3>
+<p>Connects to LocalDatabaseService and gets all user’s runs within [startDate, endDate].</p>
+</div>
+<div class="section" id="get-users-user-id-new-runs-params-startdate">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/new-runs</span></code> {Params: startDate}<a class="headerlink" href="#get-users-user-id-new-runs-params-startdate" title="Permalink to this headline">¶</a></h3>
+<p>Connects to LocalDatabaseService to fetch access_token, then fetches latest runs from Strava through the AdapterService, and returns the untracked runs in case there are any.</p>
+</div>
+<div class="section" id="post-users-user-id-runs">
+<h3><strong>POST</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/runs</span></code><a class="headerlink" href="#post-users-user-id-runs" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="get-users-user-id-goals">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/users/&lt;user-id&gt;/goals</span></code><a class="headerlink" href="#get-users-user-id-goals" title="Permalink to this headline">¶</a></h3>
+<p>Connects to LocalDatabaseService and gets all the goals for the user.</p>
+</div>
+<div class="section" id="put-users-id-goal-goal-type">
+<h3><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;id&gt;/goal/&lt;goal-type&gt;</span></code><a class="headerlink" href="#put-users-id-goal-goal-type" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="get-pretty-pic">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/pretty-pic</span></code><a class="headerlink" href="#get-pretty-pic" title="Permalink to this headline">¶</a></h3>
+<p>Connects to the adapterServices and returns 1 picture url.</p>
+<blockquote>
+<div><p><strong>Parameters</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>tag</strong></td>
+<td><strong>string</strong> <br /> Instagram tag to search for.</td>
+</tr>
+<tr class="row-even"><td><strong>limit</strong></td>
+<td><strong>integer</strong> <cite>optional</cite> <br /> Max
+images to
+retrieve. Default is 5.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>status</strong></td>
+<td><strong>string</strong> <br />
+ERROR if there was a problem.
+<br /> OK otherwise.</td>
+</tr>
+<tr class="row-even"><td><strong>resuts</strong></td>
+<td><strong>Array</strong> of <cite>Images</cite></td>
+</tr>
+<tr class="row-odd"><td><strong>error</strong></td>
+<td><strong>string</strong> <br />
+Message describing encountered
+errors.</td>
+</tr>
+<tr class="row-even"><td><strong>results.url</strong></td>
+<td><strong>string</strong> <br /> path to image.</td>
+</tr>
+<tr class="row-odd"><td><strong>results.thumbUrl</strong></td>
+<td><strong>string</strong> <br /> path to thumbnail.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample input</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nt">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;tagName&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">5</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Sample output</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK|ERROR&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;picture&quot;</span><span class="p">:</span>
+                <span class="p">{</span>
+                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://instagram.com/.../12dsfzH.jpg&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;thumbUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://instagram.com/.../12dsfzH.jpg&quot;</span>
+                <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="get-motivation-quote">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/motivation-quote</span></code><a class="headerlink" href="#get-motivation-quote" title="Permalink to this headline">¶</a></h3>
+<p>Connects to the adapterServices and returns 1 motivation quote.</p>
+<blockquote>
+<div><p>No input</p>
+<p><strong>Output</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>status</strong></td>
+<td><strong>string</strong> <br />
+ERROR if there was a problem.
+<br /> OK otherwise.</td>
+</tr>
+<tr class="row-even"><td><strong>resut</strong></td>
+<td><strong>Object</strong></td>
+</tr>
+<tr class="row-odd"><td><strong>error</strong></td>
+<td><strong>string</strong> <br />
+Message describing encountered
+errors.</td>
+</tr>
+<tr class="row-even"><td><strong>result.access_token</strong></td>
+<td><strong>string</strong> <br /> Authentication token</td>
+</tr>
+<tr class="row-odd"><td><strong>result.athlete</strong></td>
+<td><strong>Object</strong> <br /> User profile</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample output</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK|ERROR&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;result&quot;</span><span class="p">:</span>
+        <span class="p">{</span>
+                <span class="nt">&quot;quote&quot;</span><span class="p">:</span><span class="s2">&quot;There is time for everything, except for losing time.&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="s2">&quot;Anonymous&quot;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="local-database-services-rest">
+<h2>Local Database Services (REST)<a class="headerlink" href="#local-database-services-rest" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3><strong>POST</strong> <code class="docutils literal"><span class="pre">/users</span></code><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Creates a new user in the database</p>
+<p><strong>Parameters</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>slack_user_id</strong></td>
+<td><strong>string</strong> <br /> Generated by Slack.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div>No output</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h3><strong>PUT</strong> <code class="docutils literal"><span class="pre">/users/&lt;user_id&gt;</span></code><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Performs a partial update on the user&#8217;s fields. Either his profile data,
+or his telegram identifiers. Only the passed fields are updated. The user
+identified by &lt;user_id&gt; must already exist.</p>
+<p><strong>Parameters</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="61%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>slack_user_id</strong></td>
+<td><strong>string</strong></td>
+</tr>
+<tr class="row-even"><td><strong>email</strong></td>
+<td><strong>string</strong></td>
+</tr>
+<tr class="row-odd"><td><strong>firstname</strong></td>
+<td><strong>string</strong></td>
+</tr>
+<tr class="row-even"><td><strong>lastname</strong></td>
+<td><strong>string</strong></td>
+</tr>
+</tbody>
+</table>
+<p>No output.</p>
+</div></blockquote>
+</div>
+<div class="section" id="id5">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types</span></code><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>No input.</p>
+<p><strong>Output</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>status</strong></td>
+<td><strong>string</strong> <br />
+ERROR if there was a problem.
+<br /> OK otherwise.</td>
+</tr>
+<tr class="row-even"><td><strong>error</strong></td>
+<td><strong>string</strong> <br />
+Message describing encountered
+errors.</td>
+</tr>
+<tr class="row-odd"><td><strong>results</strong></td>
+<td><strong>Array of GoalType</strong></td>
+</tr>
+</tbody>
+</table>
+<p>GoalType object:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>name</strong></td>
+<td><strong>string</strong> <br /> Goal type name (e.g. &#8216;distance&#8217;, &#8216;calories&#8217;).</td>
+</tr>
+<tr class="row-even"><td><strong>units</strong></td>
+<td><strong>string</strong> <br /> (e.g. &#8216;meters&#8217;, &#8216;kcal&#8217;).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample output</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;distance&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Distance&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>       <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;calories&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Calories&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;max_speed&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Maximum speed&quot;</span>
+                <span class="p">}</span>
+        <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id6">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/goal-types/&lt;goal-type&gt;</span></code><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>No input.</p>
+<p><strong>Output</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>status</strong></td>
+<td><strong>string</strong> <br />
+ERROR if there was a problem.
+<br /> OK otherwise.</td>
+</tr>
+<tr class="row-even"><td><strong>error</strong></td>
+<td><strong>string</strong> <br />
+Message describing encountered
+errors.</td>
+</tr>
+<tr class="row-odd"><td><strong>result</strong></td>
+<td><strong>GoalType</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample output</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;max_speed&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Maximum Speed&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;km/h&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id7">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/user-id/&lt;slack-id&gt;</span></code><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Given the slack identifier of the user, returns the corresponding id used by
 this system to identify the user.</p>
 <blockquote>
 <div><p>No input.</p>
@@ -795,6 +928,13 @@ this system to identify the user.</p>
 </tr>
 </tbody>
 </table>
+<p><strong>Sample output</strong>:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div></blockquote>
 </div>
 <div class="section" id="put-users-user-id-goals-goal-type">
@@ -969,35 +1109,6 @@ errors.</td>
 </table>
 </div></blockquote>
 </div>
-<div class="section" id="get-user-user-id-access-token">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/access-token</span></code><a class="headerlink" href="#get-user-user-id-access-token" title="Permalink to this headline">¶</a></h3>
-<p>Gets the Strava authorization token for a specific user.</p>
-<blockquote>
-<div><p>No input.</p>
-<p><strong>Output</strong>:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="35%" />
-<col width="65%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>status</strong></td>
-<td><strong>string</strong> <br />
-ERROR if there was a problem.
-<br /> OK otherwise.</td>
-</tr>
-<tr class="row-even"><td><strong>error</strong></td>
-<td><strong>string</strong> <br />
-Message describing encountered
-errors.</td>
-</tr>
-<tr class="row-odd"><td><strong>token</strong></td>
-<td><strong>string</strong> <br /> access token.</td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
-</div>
 <div class="section" id="post-user-user-id-runs">
 <h3><strong>POST</strong> <code class="docutils literal"><span class="pre">/user/&lt;user-id&gt;/runs</span></code><a class="headerlink" href="#post-user-user-id-runs" title="Permalink to this headline">¶</a></h3>
 <p>Saves the passed run information in the RUN_HISTORY table.</p>
@@ -1128,8 +1239,8 @@ errors.</td>
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="id9">
-<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/motivation-quote</span></code><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3><strong>GET</strong> <code class="docutils literal"><span class="pre">/motivation-quote</span></code><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>Gets a random inspirational quote.</p>
 <blockquote>
 <div><p>No input</p>
