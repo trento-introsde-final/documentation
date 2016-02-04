@@ -3,7 +3,7 @@ CREATE SEQUENCE goal_id_seq;
 CREATE SEQUENCE goal_measure_type_id_seq;
 CREATE SEQUENCE run_history_id_seq;
 
-CREATE TABLE PERSON (
+CREATE TABLE PERSON(
 	id INT PRIMARY KEY NOT NULL DEFAULT nextval('person_id_seq'),
 	firstname VARCHAR(30),
 	lastname VARCHAR(30),
