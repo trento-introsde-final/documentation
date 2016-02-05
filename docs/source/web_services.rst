@@ -443,7 +443,7 @@ Storage Services (REST)
 			"id": 5
 		}
 
-**GET** ``/user/<user-id>/runs``
+**GET** ``/users/<user-id>/runs``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Gets all the recent runs for the specified user.
@@ -508,8 +508,8 @@ Gets all the recent runs for the specified user.
 			]
 		}
 
-**POST** ``/user/<user-id>/runs``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**POST** ``/users/<user-id>/runs``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Calls Local Database Services to saves the passed run information.
 
@@ -558,8 +558,8 @@ Calls Local Database Services to saves the passed run information.
 			"status": "OK|ERROR"
 		}
 
-**GET** ``/user/<user-id>/goals``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**GET** ``/users/<user-id>/goals``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Connects to LocalDatabaseService and gets all the goals for the user.
 
@@ -931,8 +931,8 @@ Sets a goal of the specified type for the specified user.
 		}
 
 
-**GET** ``/user/<user-id>/goals``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**GET** ``/users/<user-id>/goals``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Gets all the goals for the specified user.
 
@@ -983,7 +983,7 @@ Gets all the goals for the specified user.
 			]
 		}
 
-**GET** ``/user/<user-id>/runs``
+**GET** ``/users/<user-id>/runs``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Gets all the recent runs for the specified user.
@@ -1048,8 +1048,8 @@ Gets all the recent runs for the specified user.
 			]
 		}
 
-**POST** ``/user/<user-id>/runs``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**POST** ``/users/<user-id>/runs``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Saves the passed run information in the RUN_HISTORY table.
 
