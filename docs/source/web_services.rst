@@ -157,7 +157,7 @@ Business Logic Services (REST)
 	
 	GoalStatus object:
 
-	====================   ======================================
+	====================   ==========================================
 	**type**               **string** |br| Goal id
 	**name**               **string** |br| Goal name 
 	                       (e.g. Distance, Max. Speed)
@@ -166,13 +166,13 @@ Business Logic Services (REST)
 	                       wants to achieve in total.
 	**period**             **string**
 	                       e.g. daily, weekly
-	**periodStart**        **integer** |br| UNIX epoch timestamp.
-	**periodEnd**          **integer** |br| UNIX epoch timestamp.             
+	**periodStart**        **integer** |br| UNIX timestamp millisec.
+	**periodEnd**          **integer** |br| UNIX timestamp millisec.             
 	**goalMet**            **boolean** 
 	**count**              **float** |br|
 	                       How much user already accumulated for
 	                       goal.
-	====================   ======================================
+	====================   ==========================================
 
 	**Sample output**:
 
@@ -443,16 +443,16 @@ Storage Services (REST)
 			"id": 5
 		}
 
-**GET** ``/users/<user-id>/runs``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**GET** ``/users/<user-id>/runs?start_date=<date>``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Gets all the recent runs for the specified user.
 
-	**Parameters**:
+	**Query Parameters**:
 
-	====================   ============================================
-	**start_date**         **integer** |br| UNIX timestamp.          
-	====================   ============================================
+	====================   ================================================
+	**start_date**         **integer** |br| UNIX timestamp in milliseconds.          
+	====================   ================================================
 
 	**Output**:
 
@@ -479,13 +479,6 @@ Gets all the recent runs for the specified user.
 	**avg_speed**          **float** |br| meters per second              
 	====================   ============================================
 
-	**Sample input**:
-
-	.. code-block:: json
-
-		{
-			"start_date": 1454512708
-		}
 
 	**Sample output**:
 
@@ -581,7 +574,7 @@ Connects to LocalDatabaseService and gets all the goals for the user.
 
 	====================   ===================================================
 	**id**                 **integer**
-	**created**            **integer** |br| UNIX epoch timestamp.
+	**created**            **integer** |br| UNIX epoch timestamp in millisec.
 	**target**             **float** |br| Target goal value.
 	**period_days**        **integer** |br| How long does the period measure.
 	**period**             **string** |br| (e.g. 'weekly', 'daily', 'monthly')               
@@ -954,7 +947,7 @@ Gets all the goals for the specified user.
 
 	====================   ===================================================
 	**id**                 **integer**
-	**created**            **integer** |br| UNIX epoch timestamp.
+	**created**            **integer** |br| UNIX epoch timestamp in millisec.
 	**target**             **float** |br| Target goal value.
 	**period_days**        **integer** |br| How long does the period measure.
 	**period**             **string** |br| (e.g. 'weekly', 'daily', 'monthly')               
@@ -983,15 +976,15 @@ Gets all the goals for the specified user.
 			]
 		}
 
-**GET** ``/users/<user-id>/runs``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**GET** ``/users/<user-id>/runs?start_date=<date>``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Gets all the recent runs for the specified user.
 
-	**Parameters**:
+	**Query Parameters**:
 
 	====================   ============================================
-	**start_date**         **integer** |br| UNIX timestamp.          
+	**start_date**         **integer** |br| UNIX timestamp in millisec.          
 	====================   ============================================
 
 	**Output**:
@@ -1012,20 +1005,13 @@ Gets all the recent runs for the specified user.
 	**id**                 **integer**
 	**distance**           **float** |br| meters
 	**calories**           **float** |br| kilocalories
-	**start_date**         **time string**
+	**start_date**         **long** |br| Timestamp in millisec.
 	**moving_time**        **integer** |br| seconds               
 	**elevation_gain**     **float** |br| meters                   
 	**max_speed**          **float** |br| meters per second              
 	**avg_speed**          **float** |br| meters per second              
 	====================   ============================================
 
-	**Sample input**:
-
-	.. code-block:: json
-
-		{
-			"start_date": 1454512708
-		}
 
 	**Sample output**:
 
