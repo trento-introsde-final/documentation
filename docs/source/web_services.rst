@@ -48,11 +48,11 @@ Business Logic Services (REST)
 
 	GoalType object:
 
-	====================   =============================================================
-	**id**                 **integer**
-	**name**               **string** |br| Goal type name (e.g. 'distance', 'calories').
+	====================   ===============================================================
+	**id**                 **string** |br| Goal type name
+	**name**               **string** |br| Goal pretty name (e.g. 'distance', 'calories').
 	**units**              **string** |br| (e.g. 'meters', 'kcal').         
-	====================   =============================================================
+	====================   ===============================================================
 	
 	**Sample output**:
 
@@ -62,16 +62,16 @@ Business Logic Services (REST)
 			"status": "OK",
 			"results": [
 				{
-					"id": 1,
+					"id": "distance",
 					"name": "Distance",
 					"units" "m"
 				},
-				{	"id": 2,
+				{	"id": "calories",
 					"name": "Calories",
 					"units": "kcal"
 				},
 				{
-					"id": 3,
+					"id": "max_speed",
 					"name": "Maximum speed",
 					"units": "m/s"
 				}
@@ -290,11 +290,11 @@ Storage Services (REST)
 
 	GoalType object:
 
-	====================   =============================================================
-	**id**                 **integer**
-	**name**               **string** |br| Goal type name (e.g. 'distance', 'calories').
+	====================   ===============================================================
+	**id**                 **string** |br| Goal type name
+	**name**               **string** |br| Goal pretty name (e.g. 'distance', 'calories').
 	**units**              **string** |br| (e.g. 'meters', 'kcal').         
-	====================   =============================================================
+	====================   ===============================================================
 	
 	**Sample output**:
 
@@ -304,21 +304,22 @@ Storage Services (REST)
 			"status": "OK",
 			"results": [
 				{
-					"id": 1,
+					"id": "distance",
 					"name": "Distance",
 					"units" "m"
 				},
-				{	"id": 2,
+				{	"id": "calories",
 					"name": "Calories",
 					"units": "kcal"
 				},
 				{
-					"id": 3,
+					"id": "max_speed",
 					"name": "Maximum speed",
 					"units": "m/s"
 				}
 			]
 		}
+
 
 **GET** ``/goal-types/<goal-type>``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -798,11 +799,11 @@ Local Database Services (REST)
 
 	GoalType object:
 
-	====================   =============================================================
-	**id**                 **integer**
-	**name**               **string** |br| Goal type name (e.g. 'distance', 'calories').
+	====================   ===============================================================
+	**id**                 **string** |br| Goal type name
+	**name**               **string** |br| Goal pretty name (e.g. 'distance', 'calories').
 	**units**              **string** |br| (e.g. 'meters', 'kcal').         
-	====================   =============================================================
+	====================   ===============================================================
 	
 	**Sample output**:
 
@@ -812,21 +813,22 @@ Local Database Services (REST)
 			"status": "OK",
 			"results": [
 				{
-					"id": 1,
+					"id": "distance",
 					"name": "Distance",
 					"units" "m"
 				},
-				{	"id": 2,
+				{	"id": "calories",
 					"name": "Calories",
 					"units": "kcal"
 				},
 				{
-					"id": 3,
+					"id": "max_speed",
 					"name": "Maximum speed",
 					"units": "m/s"
 				}
 			]
 		}
+
 
 **GET** ``/goal-types/<goal-type>``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
