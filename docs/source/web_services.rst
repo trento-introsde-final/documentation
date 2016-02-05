@@ -379,7 +379,7 @@ Storage Services (REST)
 	.. code-block:: json
 
 		{
-			"status": "OK|ERROR",
+			"status": "OK"
 		}
 
 **PUT** ``/users/<user-id>`` 
@@ -549,7 +549,7 @@ Calls Local Database Services to saves the passed run information.
 	.. code-block:: json
 
 		{
-			"status": "OK|ERROR"
+			"status": "OK"
 		}
 
 **GET** ``/users/<user-id>/goals``
@@ -641,7 +641,7 @@ Sets a goal of the specified type for the specified user.
 	.. code-block:: json
 
 		{
-			"status": "OK|ERROR",
+			"status": "OK"
 		}
 
 **GET** ``/pretty-pic`` 
@@ -683,7 +683,7 @@ Connects to the adapterServices and returns 1 picture url.
 	.. code-block:: json
 
 		{
-			"status": "OK|ERROR",
+			"status": "OK",
 			"picture":
 				{
 					"url": "http://instagram.com/.../12dsfzH.jpg",
@@ -717,7 +717,7 @@ Connects to the adapterServices and returns 1 motivation quote.
 	.. code-block:: json
 
 		{
-			"status": "OK|ERROR",
+			"status": "OK",
 			"result": 
 			{
 				"quote":"There is time for everything, except for losing time.",
@@ -757,7 +757,7 @@ Local Database Services (REST)
 	.. code-block:: json
 
 		{
-			"status": "OK|ERROR",
+			"status": "OK"
 		}
 
 
@@ -922,7 +922,7 @@ Sets a goal of the specified type for the specified user.
 	.. code-block:: json
 
 		{
-			"status": "OK|ERROR",
+			"status": "OK"
 		}
 
 
@@ -1083,7 +1083,7 @@ Saves the passed run information in the RUN_HISTORY table.
 	.. code-block:: json
 
 		{
-			"status": "OK|ERROR"
+			"status": "OK"
 		}
 
 Adapter Services (REST)
@@ -1131,7 +1131,7 @@ Connects to instagram and gets latest pics that match a tag name.
 	.. code-block:: json
 
 		{
-			"status": "OK|ERROR",
+			"status": "OK",
 			"resultCount": 5,
 			"results": [
 				{
@@ -1168,7 +1168,7 @@ Gets a random inspirational quote.
 	.. code-block:: json
 
 		{
-			"status": "OK|ERROR",
+			"status": "OK",
 			"result": 
 			{
 				"quote":"There is time for everything, except for losing time.",
