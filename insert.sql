@@ -16,9 +16,9 @@ VALUES  ('distance', 'meters','distance ran'),
         ('steps', 'steps', 'steps walked');
 
 INSERT INTO GOAL (person_id, target_value, goal_measure_type, goal_period)
-VALUES  (1,  2000, 2, 1),
-        (1,  10000, 8, 1),
-        (3,  50000, 8, 7);
+VALUES  (1,  2000, 'distance', 1),
+        (1,  10000, 'steps', 1),
+        (3,  50000, 'steps', 7);
 
 INSERT INTO RUN_HISTORY (person_id, distance, steps)
 VALUES  (1, 1500, 6000),
