@@ -152,7 +152,7 @@ Business Logic Services (REST)
 	**error**              **string** |br|
 	                       Message describing encountered
 	                       errors.
-	**goalStatus**         **Array of `GoalStatus`**
+	**goal_status**         **Array of `GoalStatus`**
 	====================   =====================================
 	
 	GoalStatus object:
@@ -166,9 +166,9 @@ Business Logic Services (REST)
 	                       wants to achieve in total.
 	**period**             **string**
 	                       e.g. daily, weekly
-	**periodStart**        **integer** |br| UNIX timestamp millisec.
-	**periodEnd**          **integer** |br| UNIX timestamp millisec.             
-	**goalMet**            **boolean** 
+	**period_start**        **integer** |br| UNIX timestamp millisec.
+	**period_end**          **integer** |br| UNIX timestamp millisec.             
+	**goal_met**            **boolean** 
 	**count**              **float** |br|
 	                       How much user already accumulated for
 	                       goal.
@@ -180,16 +180,16 @@ Business Logic Services (REST)
 
 		{
 			"status": "OK",
-			"goalStatus": [
+			"goal_status": [
 				{
 					"type": "distance",
 					"name": "Distance",
-					"units": "m"
-					"target": 5000.00
+					"units": "m",
+					"target": 5000.00,
 					"period": "weekly",
-					"periodStart": 1452941107,
-					"periodEnd": 1453545907
-					"goalMet": false,
+					"period_start": 1452941107,
+					"period_end": 1453545907,
+					"goal_met": false,
 					"count": 3500.00
 				}
 			]
