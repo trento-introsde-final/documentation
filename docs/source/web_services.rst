@@ -10,18 +10,20 @@ Process Centric Services (SOAP)
 --------------------------------
 **initializeUser** {Params: slack_user_id}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Given a slack user id, creates a new user in the system.
+Given a slack user id, and his username creates a new user in the system.
 
-**checkGoalStatus** {Params: user_id}
+**checkGoalStatus** {Params: slack_user_id}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Given a user_id checks the user’s progress with regards to his goals.
+Given a slack_user_id checks the user’s progress with regards to his goals.
+Can reward him with pictures, or motivate him with quotes.
 
 **updateRunInfo** {Params: Object run}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Tells the system the user registers a new run.
+Registers a new run. Provides distance, time, calories.
 
-
-
+**setGoal** {Params: Goal type, target, period}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Creates a new personal goal.
 
 
 Business Logic Services (REST)
