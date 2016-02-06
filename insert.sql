@@ -15,11 +15,11 @@ VALUES  ('distance', 'meters','distance ran'),
         ('calories', 'calories','calories burnt'),
         ('steps', 'steps', 'steps walked');
 
-INSERT INTO GOAL (person_id, target_value, goal_measure_type, goal_period)
-VALUES  (1,  2000, 'distance', 1),
-        (1,  10000, 'steps', 1),
-        (3,  50000, 'steps', 7);
+INSERT INTO GOAL (person_id, target_value, goal_measure_type, goal_period, creation_date)
+VALUES  (1,  2000, 'distance', 1, to_timestamp(1454590900)),
+        (1,  10000, 'steps', 1, to_timestamp(1454450900)),
+        (3,  12000, 'distance', 7, to_timestamp(1454610900));
 
-INSERT INTO RUN_HISTORY (person_id, distance, steps)
-VALUES  (1, 1500, 6000),
-        (1, 1000, 2000);
+INSERT INTO RUN_HISTORY (person_id, distance, steps, startdate)
+VALUES  (1, 1500, 6000, to_timestamp(1454510900)),
+        (1, 1000, 2000, to_timestamp(1454610900));
