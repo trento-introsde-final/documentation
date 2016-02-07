@@ -8,22 +8,109 @@ Web Services
 
 Process Centric Services (SOAP)
 --------------------------------
-**initializeUser** {Params: slack_user_id}
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Given a slack user id, and his username creates a new user in the system.
 
-**checkGoalStatus** {Params: slack_user_id}
+**initializeUser**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Given a slack_user_id checks the user’s progress with regards to his goals.
-Can reward him with pictures, or motivate him with quotes.
+	
+	Given a slack user id, and his username creates a new user in the system.
+	Returns the id of the newly created user.
 
-**updateRunInfo** {Params: Object run}
+	**Parameters**:
+
+	====================   =====================================
+	**slack_user_id**      **string** |br| 
+	                       Slack Identifier
+	**username**           **string** |br|
+	                       Nickname to personalise messages
+	====================   =====================================
+
+	**Output**:
+
+	====================   ========================================
+	**id**                 **integer** |br|
+	                       id that identifies the new user in the
+	                       system.
+	====================   ========================================
+
+**checkGoalStatus**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Registers a new run. Provides distance, time, calories.
+
+	Checks the goals status for a given slack user, identified by a slack_user_id.
+	The user must be previously registered.
+	The goal status tells how many goals he has met and how much he is missing for 
+	the others. The system will reward him with pictures, or motivate him with quotes.
+
+	**Parameters**:
+
+	====================   =====================================
+	**slack_user_id**      **string** |br| 
+	                       Slack Identifier
+	====================   =====================================
+
+	**Output**:
+
+	====================   ========================================
+	**goalStatusList**     Object containing a description of each
+	                       goal, how much has been achieved, and 
+	                       until when the user has chance to
+	                       accomplish it.
+	**messages**           List of messages that should be
+	                       displayed by the user interface.
+	====================   ========================================
+
+**updateRunInfo**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+	Registers a new run. The user must provide distance, time, calories. Checks if any new goals were met with the run.
+
+	**Parameters**:
+
+	====================   =====================================
+	**slack_user_id**      **string** |br| 
+	                       Slack Identifier
+	**distance**           **number** |br|
+	                       meters
+	**moving_time**        **number** |br|
+	                       seconds
+	**calories**           **number** |br|
+	                       kcal
+	====================   =====================================
+
+	**Output**:
+
+	====================   ========================================
+	**messages**           List of messages that should be
+	                       displayed by the user interface.
+	                       Includes message in case a goal was met
+	                       with the new run.
+	====================   ========================================
+
 
 **setGoal** {Params: Goal type, target, period}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Creates a new personal goal.
+
+	Creates a new personal goal.
+
+	**Parameters**:
+
+	====================   =====================================
+	**slack_user_id**      **string** |br| 
+	                       Slack Identifier
+	**goal-type**          **string** |br|
+	                       distance, time, or calories
+	**target**             **number** |br|
+	                       target value
+	**period**             **number** |br|
+	                       daily, weekly, monthly
+	====================   =====================================
+
+	**Output**:
+
+	====================   ========================================
+	**messages**           Messages notifying the creation of the 
+	                       goal.
+	====================   ========================================
+
 
 
 Business Logic Services (REST)
