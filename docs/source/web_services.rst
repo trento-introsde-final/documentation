@@ -112,6 +112,8 @@ Process Centric Services (SOAP)
 	====================   ========================================
 
 
+------------------------------------------------
+
 
 Business Logic Services (REST)
 -------------------------------
@@ -354,6 +356,8 @@ Business Logic Services (REST)
           "status": "OK"
         }
 
+
+------------------------------------
 
 
 Storage Services (REST)
@@ -816,6 +820,8 @@ Connects to the adapterServices and returns 1 motivation quote.
 		}
 
 
+------------------------------------------------
+
 
 Local Database Services (REST)
 -------------------------------
@@ -1193,6 +1199,10 @@ Saves the passed run information in the RUN_HISTORY table.
 		{
 			"status": "OK"
 		}
+
+
+------------------------------------------------
+
 
 Adapter Services (REST)
 ------------------------
