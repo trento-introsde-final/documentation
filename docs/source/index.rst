@@ -23,4 +23,4 @@ There you will also find a thorough explanation of the architecture along with s
    :maxdepth: 2
 
    web_services
-   telegram_bot
+   slack_bot
