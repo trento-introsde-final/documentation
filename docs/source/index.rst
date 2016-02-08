@@ -19,8 +19,9 @@ All the project documentation, and code can be found as a GitHub organization (c
 There you will also find a thorough explanation of the architecture along with sequence diagrams for the main use cases.
 
 .. toctree::
-   :caption: Table of Contents:
+   :caption: Table of Contents
    :maxdepth: 2
 
+   self
    web_services
    slack_bot
