@@ -11,14 +11,14 @@ Process Centric Services (SOAP)
 
 **initializeUser**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-	
+
 	Given a slack user id, and his username creates a new user in the system.
 	Returns the id of the newly created user.
 
 	**Parameters**:
 
 	====================   =====================================
-	**slack_user_id**      **string** |br| 
+	**slack_user_id**      **string** |br|
 	                       Slack Identifier
 	**username**           **string** |br|
 	                       Nickname to personalise messages
@@ -37,13 +37,13 @@ Process Centric Services (SOAP)
 
 	Checks the goals status for a given slack user, identified by a slack_user_id.
 	The user must be previously registered.
-	The goal status tells how many goals he has met and how much he is missing for 
+	The goal status tells how many goals he has met and how much he is missing for
 	the others. The system will reward him with pictures, or motivate him with quotes.
 
 	**Parameters**:
 
 	====================   =====================================
-	**slack_user_id**      **string** |br| 
+	**slack_user_id**      **string** |br|
 	                       Slack Identifier
 	====================   =====================================
 
@@ -51,7 +51,7 @@ Process Centric Services (SOAP)
 
 	====================   ========================================
 	**goalStatusList**     Object containing a description of each
-	                       goal, how much has been achieved, and 
+	                       goal, how much has been achieved, and
 	                       until when the user has chance to
 	                       accomplish it.
 	**messages**           List of messages that should be
@@ -66,7 +66,7 @@ Process Centric Services (SOAP)
 	**Parameters**:
 
 	====================   =====================================
-	**slack_user_id**      **string** |br| 
+	**slack_user_id**      **string** |br|
 	                       Slack Identifier
 	**distance**           **number** |br|
 	                       meters
@@ -94,7 +94,7 @@ Process Centric Services (SOAP)
 	**Parameters**:
 
 	====================   =====================================
-	**slack_user_id**      **string** |br| 
+	**slack_user_id**      **string** |br|
 	                       Slack Identifier
 	**goal-type**          **string** |br|
 	                       distance, time, or calories
@@ -107,7 +107,7 @@ Process Centric Services (SOAP)
 	**Output**:
 
 	====================   ========================================
-	**messages**           Messages notifying the creation of the 
+	**messages**           Messages notifying the creation of the
 	                       goal.
 	====================   ========================================
 
@@ -125,8 +125,8 @@ Business Logic Services (REST)
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**resuts**             **Array** of `Goal Type` |br|
 						   Each string is a goal type.
@@ -140,9 +140,9 @@ Business Logic Services (REST)
 	====================   ===============================================================
 	**id**                 **string** |br| Goal type name
 	**name**               **string** |br| Goal pretty name (e.g. 'distance', 'calories').
-	**units**              **string** |br| (e.g. 'meters', 'kcal').         
+	**units**              **string** |br| (e.g. 'meters', 'kcal').
 	====================   ===============================================================
-	
+
 	**Sample output**:
 
 	.. code-block:: json
@@ -176,8 +176,8 @@ Business Logic Services (REST)
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
@@ -186,7 +186,7 @@ Business Logic Services (REST)
 	**name**               **string**
 	**units**              **string**
 	====================   =====================================
-	
+
 	**Sample output**:
 
 	.. code-block:: json
@@ -207,15 +207,15 @@ Business Logic Services (REST)
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
 	                       errors.
 	**id**                 **integer**
 	====================   =====================================
-	
+
 	**Sample output**:
 
 	.. code-block:: json
@@ -235,29 +235,29 @@ Business Logic Services (REST)
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
 	                       errors.
 	**goal_status**         **Array of `GoalStatus`**
 	====================   =====================================
-	
+
 	GoalStatus object:
 
 	====================   ==========================================
 	**type**               **string** |br| Goal id
-	**name**               **string** |br| Goal name 
+	**name**               **string** |br| Goal name
 	                       (e.g. Distance, Max. Speed)
-	**units**              **string**         
-	**target**             **float** |br| The ammount the user 
+	**units**              **string**
+	**target**             **float** |br| The ammount the user
 	                       wants to achieve in total.
 	**period**             **string**
 	                       e.g. daily, weekly
 	**period_start**        **integer** |br| UNIX timestamp millisec.
-	**period_end**          **integer** |br| UNIX timestamp millisec.             
-	**goal_met**            **boolean** 
+	**period_end**          **integer** |br| UNIX timestamp millisec.
+	**goal_met**            **boolean**
 	**count**              **float** |br|
 	                       How much user already accumulated for
 	                       goal.
@@ -285,29 +285,29 @@ Business Logic Services (REST)
 		}
 
 
-**POST** ``/users`` 
+**POST** ``/users``
 ^^^^^^^^^^^^^^^^^^^^
 
 	Creates a new user
 
-	HTTP Status code: 200, 404 (Code not found) 
+	HTTP Status code: 200, 404 (Code not found)
 
 	**Parameters**
 
 	====================   ===============================================================
-	**slack_user_id**      **string** |br|    
+	**slack_user_id**      **string** |br|
 	====================   ===============================================================
 
 
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
-	                       errors.                  
+	                       errors.
 	====================   =====================================
 
 	**Sample output**:
@@ -319,43 +319,42 @@ Business Logic Services (REST)
 		}
 
 
-**PUT** ``/users/<user-id>`` 
+**PUT** ``/users/<user_id>``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-	Update a user's profile with his slack user credentials.
+    	Performs a partial update on the user's fields. Either his profile data,
+    	or his slack identifiers. Only the passed fields are updated. The user
+    	identified by <user_id> must already exist.
 
-	HTTP status code: 200 (OK), 400 (User doesn't exist)
+    	**Parameters**:
 
-	**Parameters**:
-	
-	====================   ===============================================================
-	**slack_user_id**      **integer** |br| 
-	                       Check `Slack API 
-	                       <https://api.slack.com/>`_. 
-	====================   ===============================================================
+    	========================   =====================================
+    	**slack_user_id**          **string**
+    	**email**                  **string**
+    	**firstname**              **string**
+    	**lastname**               **string**
+    	========================   =====================================
 
+      **Output**:
 
-	**Output**:
+      ====================   =====================================
+      **status**             **string** |br|
+                             ERROR if there was a problem.
+                             |br| OK otherwise.
+      **error**              **string** |br|
+                             Message describing encountered
+                             errors.
+      ====================   =====================================
 
-	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
-	                       |br| OK otherwise.
-	**error**              **string** |br|
-	                       Message describing encountered
-	                       errors.                  
-	====================   =====================================
+      **Sample output**:
 
-	**Sample output**:
+      .. code-block:: json
 
-	.. code-block:: json
-
-		{
-			"status": "OK"
-		}
+        {
+          "status": "OK"
+        }
 
 
-		
 
 Storage Services (REST)
 ------------------------
@@ -368,13 +367,13 @@ Storage Services (REST)
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
-	                       errors.  
-	**results**            **Array of GoalType**     
+	                       errors.
+	**results**            **Array of GoalType**
 	====================   =====================================
 
 	GoalType object:
@@ -382,9 +381,9 @@ Storage Services (REST)
 	====================   ===============================================================
 	**id**                 **string** |br| Goal type name
 	**name**               **string** |br| Goal pretty name (e.g. 'distance', 'calories').
-	**units**              **string** |br| (e.g. 'meters', 'kcal').         
+	**units**              **string** |br| (e.g. 'meters', 'kcal').
 	====================   ===============================================================
-	
+
 	**Sample output**:
 
 	.. code-block:: json
@@ -419,8 +418,8 @@ Storage Services (REST)
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
@@ -429,7 +428,7 @@ Storage Services (REST)
 	**name**               **string**
 	**units**              **string**
 	====================   =====================================
-	
+
 	**Sample output**:
 
 	.. code-block:: json
@@ -445,7 +444,7 @@ Storage Services (REST)
 ^^^^^^^^^^^^^^^^^^^^
 
     Creates a new user in the database
-    
+
     **Parameters**:
 
     ========================   =====================================
@@ -455,12 +454,12 @@ Storage Services (REST)
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
-	                       errors.                  
+	                       errors.
 	====================   =====================================
 
 	**Sample output**:
@@ -471,40 +470,42 @@ Storage Services (REST)
 			"status": "OK"
 		}
 
-**PUT** ``/users/<user-id>`` 
+**PUT** ``/users/<user_id>``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-	Update a user's profile with his slack user credentials.
+    	Performs a partial update on the user's fields. Either his profile data,
+    	or his slack identifiers. Only the passed fields are updated. The user
+    	identified by <user_id> must already exist.
 
-	HTTP status code: 200 (OK), 400 (User doesn't exist)
+    	**Parameters**:
 
-	**Parameters**:
-	
-	====================   ===============================================================
-	**slack_user_id**      **integer** |br| 
-	                       Check `Slack API 
-	                       <https://api.slack.com/>`_. 
-	====================   ===============================================================
+    	========================   =====================================
+    	**slack_user_id**          **string**
+    	**email**                  **string**
+    	**firstname**              **string**
+    	**lastname**               **string**
+    	========================   =====================================
+
+      **Output**:
+
+      ====================   =====================================
+      **status**             **string** |br|
+                             ERROR if there was a problem.
+                             |br| OK otherwise.
+      **error**              **string** |br|
+                             Message describing encountered
+                             errors.
+      ====================   =====================================
+
+      **Sample output**:
+
+      .. code-block:: json
+
+        {
+          "status": "OK"
+        }
 
 
-	**Output**:
-
-	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
-	                       |br| OK otherwise.
-	**error**              **string** |br|
-	                       Message describing encountered
-	                       errors.                  
-	====================   =====================================
-
-	**Sample output**:
-
-	.. code-block:: json
-
-		{
-			"status": "OK"
-		}
 
 **GET** ``/user-id/<slack-id>``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -515,15 +516,15 @@ Storage Services (REST)
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
 	                       errors.
 	**id**                 **integer**
 	====================   =====================================
-	
+
 	**Sample output**:
 
 	.. code-block:: json
@@ -541,19 +542,19 @@ Gets all the recent runs for the specified user.
 	**Query Parameters**:
 
 	====================   ================================================
-	**start_date**         **integer** |br| UNIX timestamp in milliseconds.          
+	**start_date**         **integer** |br| UNIX timestamp in milliseconds.
 	====================   ================================================
 
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
 	                       errors.
-	**runs**               **Array** of `Run`         
+	**runs**               **Array** of `Run`
 	====================   =====================================
 
 	Run object:
@@ -563,10 +564,10 @@ Gets all the recent runs for the specified user.
 	**distance**           **float** |br| meters
 	**calories**           **float** |br| kilocalories
 	**start_date**         **time string**
-	**moving_time**        **integer** |br| seconds               
-	**elevation_gain**     **float** |br| meters                   
-	**max_speed**          **float** |br| meters per second              
-	**avg_speed**          **float** |br| meters per second              
+	**moving_time**        **integer** |br| seconds
+	**elevation_gain**     **float** |br| meters
+	**max_speed**          **float** |br| meters per second
+	**avg_speed**          **float** |br| meters per second
 	====================   ============================================
 
 
@@ -602,17 +603,17 @@ Calls Local Database Services to saves the passed run information.
 	**distance**           **float** |br| meters
 	**calories**           **float** |br| kilocalories
 	**start_date**         **time string**
-	**moving_time**        **integer** |br| seconds               
-	**elevation_gain**     **float** |br| meters                   
-	**max_speed**          **float** |br| meters per second              
-	**avg_speed**          **float** |br| meters per second              
+	**moving_time**        **integer** |br| seconds
+	**elevation_gain**     **float** |br| meters
+	**max_speed**          **float** |br| meters per second
+	**avg_speed**          **float** |br| meters per second
 	====================   ============================================
 
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
@@ -651,13 +652,13 @@ Connects to LocalDatabaseService and gets all the goals for the user.
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
 	                       errors.
-	**goals**              **Array** of `Goal`         
+	**goals**              **Array** of `Goal`
 	====================   =====================================
 
 	Goal object:
@@ -667,9 +668,9 @@ Connects to LocalDatabaseService and gets all the goals for the user.
 	**created**            **integer** |br| UNIX epoch timestamp in millisec.
 	**target**             **float** |br| Target goal value.
 	**period_days**        **integer** |br| How long does the period measure.
-	**period**             **string** |br| (e.g. 'weekly', 'daily', 'monthly')               
-	**measure_type**       **float** |br| meters                   
-	**units**              **float** |br| meters per second                   
+	**period**             **string** |br| (e.g. 'weekly', 'daily', 'monthly')
+	**measure_type**       **float** |br| meters
+	**units**              **float** |br| meters per second
 	====================   ===================================================
 
 	**Sample output**:
@@ -702,18 +703,18 @@ Sets a goal of the specified type for the specified user.
 
 	====================   ===================================================
 	**target**             **float** |br| Target goal value.
-	**period**             **string** |br| (e.g. 'weekly', 'daily', 'monthly')         
+	**period**             **string** |br| (e.g. 'weekly', 'daily', 'monthly')
 	====================   ===================================================
 
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
-	                       errors.       
+	                       errors.
 	====================   =====================================
 
 	**Sample input**:
@@ -733,7 +734,7 @@ Sets a goal of the specified type for the specified user.
 			"status": "OK"
 		}
 
-**GET** ``/pretty-pic`` 
+**GET** ``/pretty-pic``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Connects to the adapterServices and returns 1 picture url.
@@ -747,8 +748,8 @@ Connects to the adapterServices and returns 1 picture url.
 	**Output**:
 
 	====================   =================================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**picture**            **Object** |br|
 	                       Picture with its url and thumbnail url
@@ -758,11 +759,11 @@ Connects to the adapterServices and returns 1 picture url.
 	**picture.url**        **string** |br| path to image.
 	**picture.thumbUrl**   **string** |br| path to thumbnail.
 	====================   =================================================
-	
+
 	**Sample input**:
 
 	.. code-block:: json
-		
+
 		{
 			"tag": "tagName"
 		}
@@ -790,10 +791,10 @@ Connects to the adapterServices and returns 1 motivation quote.
 	**Output**:
 
 	========================   =====================================
-	**status**                 **string** |br| 
-	                           ERROR if there was a problem. 
+	**status**                 **string** |br|
+	                           ERROR if there was a problem.
 	                           |br| OK otherwise.
-	**resut**                  **Object** 
+	**resut**                  **Object**
 	**error**                  **string** |br|
 	                           Message describing encountered
 	                           errors.
@@ -807,7 +808,7 @@ Connects to the adapterServices and returns 1 motivation quote.
 
 		{
 			"status": "OK",
-			"result": 
+			"result":
 			{
 				"quote":"There is time for everything, except for losing time.",
 				"author":"Anonymous"
@@ -823,7 +824,7 @@ Local Database Services (REST)
 ^^^^^^^^^^^^^^^^^^^^
 
     Creates a new user in the database
-    
+
     **Parameters**:
 
     ========================   =====================================
@@ -833,12 +834,12 @@ Local Database Services (REST)
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
-	                       errors.                  
+	                       errors.
 	====================   =====================================
 
 	**Sample output**:
@@ -850,11 +851,11 @@ Local Database Services (REST)
 		}
 
 
-**PUT** ``/users/<user_id>`` 
+**PUT** ``/users/<user_id>``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-..	Performs a partial update on the user's fields. Either his profile data,
-	or his telegram identifiers. Only the passed fields are updated. The user
+	Performs a partial update on the user's fields. Either his profile data,
+	or his slack identifiers. Only the passed fields are updated. The user
 	identified by <user_id> must already exist.
 
 	**Parameters**:
@@ -866,7 +867,25 @@ Local Database Services (REST)
 	**lastname**               **string**
 	========================   =====================================
 
-	No output.
+  **Output**:
+
+	====================   =====================================
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
+	                       |br| OK otherwise.
+	**error**              **string** |br|
+	                       Message describing encountered
+	                       errors.
+	====================   =====================================
+
+	**Sample output**:
+
+	.. code-block:: json
+
+		{
+			"status": "OK"
+		}
+
 
 
 **GET** ``/goal-types``
@@ -877,13 +896,13 @@ Local Database Services (REST)
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
-	                       errors.  
-	**results**            **Array of GoalType**     
+	                       errors.
+	**results**            **Array of GoalType**
 	====================   =====================================
 
 	GoalType object:
@@ -891,9 +910,9 @@ Local Database Services (REST)
 	====================   ===============================================================
 	**id**                 **string** |br| Goal type name
 	**name**               **string** |br| Goal pretty name (e.g. 'distance', 'calories').
-	**units**              **string** |br| (e.g. 'meters', 'kcal').         
+	**units**              **string** |br| (e.g. 'meters', 'kcal').
 	====================   ===============================================================
-	
+
 	**Sample output**:
 
 	.. code-block:: json
@@ -928,8 +947,8 @@ Local Database Services (REST)
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
@@ -938,7 +957,7 @@ Local Database Services (REST)
 	**name**               **string**
 	**units**              **string**
 	====================   =====================================
-	
+
 	**Sample output**:
 
 	.. code-block:: json
@@ -961,7 +980,7 @@ this system to identify the user.
  	**Output**:
 
  	====================   =====================================
-	**id**                 **integer**   
+	**id**                 **integer**
 	====================   =====================================
 
 	**Sample output**:
@@ -983,18 +1002,18 @@ Sets a goal of the specified type for the specified user.
 
 	====================   ===================================================
 	**target**             **float** |br| Target goal value.
-	**period**             **string** |br| (e.g. 'weekly', 'daily', 'monthly')         
+	**period**             **string** |br| (e.g. 'weekly', 'daily', 'monthly')
 	====================   ===================================================
 
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
-	                       errors.       
+	                       errors.
 	====================   =====================================
 
 	**Sample input**:
@@ -1025,13 +1044,13 @@ Gets all the goals for the specified user.
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
 	                       errors.
-	**goals**              **Array** of `Goal`         
+	**goals**              **Array** of `Goal`
 	====================   =====================================
 
 	Goal object:
@@ -1041,9 +1060,9 @@ Gets all the goals for the specified user.
 	**created**            **integer** |br| UNIX epoch timestamp in millisec.
 	**target**             **float** |br| Target goal value.
 	**period_days**        **integer** |br| How long does the period measure.
-	**period**             **string** |br| (e.g. 'weekly', 'daily', 'monthly')               
-	**measure_type**       **float** |br| meters                   
-	**units**              **float** |br| meters per second                   
+	**period**             **string** |br| (e.g. 'weekly', 'daily', 'monthly')
+	**measure_type**       **float** |br| meters
+	**units**              **float** |br| meters per second
 	====================   ===================================================
 
 	**Sample output**:
@@ -1075,19 +1094,19 @@ Gets all the recent runs for the specified user.
 	**Query Parameters**:
 
 	====================   ============================================
-	**start_date**         **integer** |br| UNIX timestamp in millisec.          
+	**start_date**         **integer** |br| UNIX timestamp in millisec.
 	====================   ============================================
 
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
 	                       errors.
-	**runs**               **Array** of `Run`         
+	**runs**               **Array** of `Run`
 	====================   =====================================
 
 	Run object:
@@ -1097,10 +1116,10 @@ Gets all the recent runs for the specified user.
 	**distance**           **float** |br| meters
 	**calories**           **float** |br| kilocalories
 	**start_date**         **long** |br| Timestamp in millisec.
-	**moving_time**        **integer** |br| seconds               
-	**elevation_gain**     **float** |br| meters                   
-	**max_speed**          **float** |br| meters per second              
-	**avg_speed**          **float** |br| meters per second              
+	**moving_time**        **integer** |br| seconds
+	**elevation_gain**     **float** |br| meters
+	**max_speed**          **float** |br| meters per second
+	**avg_speed**          **float** |br| meters per second
 	====================   ============================================
 
 
@@ -1136,17 +1155,17 @@ Saves the passed run information in the RUN_HISTORY table.
 	**distance**           **float** |br| meters
 	**calories**           **float** |br| kilocalories
 	**start_date**         **time string**
-	**moving_time**        **integer** |br| seconds               
-	**elevation_gain**     **float** |br| meters                   
-	**max_speed**          **float** |br| meters per second              
-	**avg_speed**          **float** |br| meters per second              
+	**moving_time**        **integer** |br| seconds
+	**elevation_gain**     **float** |br| meters
+	**max_speed**          **float** |br| meters per second
+	**avg_speed**          **float** |br| meters per second
 	====================   ============================================
 
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**error**              **string** |br|
 	                       Message describing encountered
@@ -1178,7 +1197,7 @@ Saves the passed run information in the RUN_HISTORY table.
 Adapter Services (REST)
 ------------------------
 
-**GET** ``/instagram-pics`` 
+**GET** ``/instagram-pics``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Connects to instagram and gets latest pics that match a tag name.
@@ -1187,7 +1206,7 @@ Connects to instagram and gets latest pics that match a tag name.
 
 	====================   ============================================
 	**tag**                **string** |br| Instagram tag to search for.
-	**limit**              **integer** `optional` |br| Max 
+	**limit**              **integer** `optional` |br| Max
 	                       images to
 	                       retrieve. Default is 5.
 	====================   ============================================
@@ -1195,8 +1214,8 @@ Connects to instagram and gets latest pics that match a tag name.
 	**Output**:
 
 	====================   =====================================
-	**status**             **string** |br| 
-	                       ERROR if there was a problem. 
+	**status**             **string** |br|
+	                       ERROR if there was a problem.
 	                       |br| OK otherwise.
 	**resuts**             **Array** of `Images`
 	**error**              **string** |br|
@@ -1205,11 +1224,11 @@ Connects to instagram and gets latest pics that match a tag name.
 	**results.url**        **string** |br| path to image.
 	**results.thumbUrl**   **string** |br| path to thumbnail.
 	====================   =====================================
-	
+
 	**Sample input**:
 
 	.. code-block:: json
-		
+
 		{
 			"tag": "tagName",
 			"limit": 5
@@ -1241,10 +1260,10 @@ Gets a random inspirational quote.
 	**Output**:
 
 	========================   =====================================
-	**status**                 **string** |br| 
-	                           ERROR if there was a problem. 
+	**status**                 **string** |br|
+	                           ERROR if there was a problem.
 	                           |br| OK otherwise.
-	**resut**                  **Object** 
+	**resut**                  **Object**
 	**error**                  **string** |br|
 	                           Message describing encountered
 	                           errors.
@@ -1258,10 +1277,9 @@ Gets a random inspirational quote.
 
 		{
 			"status": "OK",
-			"result": 
+			"result":
 			{
 				"quote":"There is time for everything, except for losing time.",
 				"author":"Anonymous"
 			}
 		}
-
