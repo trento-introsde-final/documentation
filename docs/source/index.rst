@@ -9,7 +9,15 @@
 IntroSDE 2015-16 Final Project Documentation
 =============================================
 
-This is the documentation for the final project corresponding to the lecture *Service Design and Engineering*  taught at the **University of Trento, winter semester 2015-16**. In summary, the scope of this project is to develop several web services, which interact between themselves, each corresponding to a different layer of the system architecture. The context is a system that allows the user to mantain a healthy lifestyle, and to remain motivated (by means of rewards and goals). The full project requirements and description can be found in the `course website <https://sites.google.com/a/unitn.it/introsde_2015-16/lab-sessions/assignments>`_.
+This is the documentation for the final project corresponding to the lecture *Service Design and Engineering*  taught at the **University of Trento, winter semester 2015-16**. In summary, the scope of this project is to develop several web services, which interact between themselves, each corresponding to a different layer of the system architecture.
+
+The context is a system that allows the user to mantain a healthy lifestyle, and to remain motivated (by means of rewards and goals). The full project requirements and description can be found in the `course website <https://sites.google.com/a/unitn.it/introsde_2015-16/lab-sessions/assignments>`_.
+
+The authors of this project are:
+
+- Damiano Fossa - `github <https://github.com/damianfox>`_
+
+- Daniel Bruzual - `github <https://github.com/djbb7>`_
 
 This project was developed using Java, JAX-WS, Jersey, Postgres, SOAP and REST web services. Each web service was deployed to Heroku, on a different server.
 
