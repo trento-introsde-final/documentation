@@ -91,7 +91,7 @@ The system has 4 major use cases, that together define the complete experience t
 
 ### User Registration
 
-The first step for any user is to register into our system, this is down by using the trigger word *register* in the Slack channel. This will create a profile for the user, or return an error if he is already registered.
+The first step for any user is to register into our system, this is done by using the trigger word *register* in the Slack channel. This will create a profile for the user, or return an error if he is already registered.
 
 ![User Registration Sequence Diagram](https://raw.githubusercontent.com/trento-introsde-final/documentation/master/images/slack_user_register.png)
 
