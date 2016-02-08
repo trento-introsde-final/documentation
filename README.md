@@ -45,31 +45,33 @@ The project follows a SOA that consists of several layers. Although in many case
 
 Is in charge of receiving commands from Slack via outgoing webhooks, and responds accordingly via incoming webhooks. It communicates directly with Process Centric Services, via SOAP requests, and receives the sequences of messages it should present to the user. Slack Bot is in charge of the formatting.
 
-Technologies: PHP, REST endpoint for outgoing wekhooks, SOAP client for interacting with PCS.
+*Technologies: PHP, REST endpoint for outgoing wekhooks, SOAP client for interacting with PCS.*
 
 #### Process Centric Services
 
-This is were complex operations involving several web services take place. It implements the 4 methods available to the public via Slack Bot. Each one has a control flow that performs the instructed operation (e.g. log a new run), and additionally can check goals and reward the user.
+This is where complex operations, or integration logics, involving several web services take place. It implements the 4 methods available to the public via Slack Bot. Each one has a control flow that performs the instructed operation (e.g. log a new run), and additionally can check goals and reward the user.
 
-Technologies: Java, SOAP endpoint, and REST client for interacting with BLS and SS.
+As a course requirement, two of the methods implement 4 sequential calls to different web services: Update Run, and Check Goal Status.
+
+*Technologies: Java, SOAP endpoint, and REST client for interacting with BLS and SS.*
 
 #### Business Logic Services
 
 This web service implements methods that are exposed to the public but don't involve a process logic. It is meant for simple operations (typically GET) that involve only reading certain information.
 
-Technologies: Java, REST endpoint and client.
+*Technologies: Java, REST endpoint and client.*
 
 ### Adapter Services
 
 This web service is in charge of communication with external web services. In this case we are interacting via REST APIs with [Instagram](https://www.instagram.com/developer/) for pictures and [Forismatic](http://forismatic.com/en/) for motivational quotes. However, it can easily be extended to include more services.
 
-Technologies: Java, REST endpoint, REST client.
+*Technologies: Java, REST endpoint, REST client.*
 
 #### Local Database Services
 
-Is in charge of storing information locally, such as user profiles, goals, and run history. It allows reading and inserting into the database. At the moment, no authentication or authorization control is implemented.
+Is in charge of storing information locally, such as user profiles, goals, and run history. It allows reading and inserting into the database. At the moment no authentication or authorization control is implemented.
 
-Technologies: Java, REST endpoint, Postgres.
+*Technologies: Java, REST endpoint, Postgres.*
 
 ##### Database Design
 
@@ -77,10 +79,10 @@ The database is implemented in Postgres according to this design:
 ![ER-Diagram](https://raw.githubusercontent.com/trento-introsde-final/documentation/master/images/ER_diagram.png)
 
 Some key points are that:
-* A person is identified by a *slack_user_id* externally, but internally we use our own *id*.
-* A goal is seen as something that a user wants to achieve periodically, i.e. run 10km every week. The user can achieve the target this week, but next week the count will start from 0 again. Goals can be of any duration in days.
-* A goal is of a certain type, e.g. distance, calories, moving time.
-* A goal is met when the sum of the runs that fall within that period are greater than the *target* for the goal.
+* A __person__ is identified by a *slack_user_id* externally, but internally we use our own *id*.
+* A __goal__ is seen as something that a user wants to achieve periodically, i.e. run 10km every week. The user can achieve the *target* this week, but next week the count will start from 0 again. Goals can be of any duration in days (this duration is the __period__).
+* A __goal__ is of a certain __type__, e.g. distance, calories, moving time.
+* A __goal__ is met when the sum of the __runs__ that fall within that __period__ are greater than the *target* for the _goal_.
 
 
 # Use cases
@@ -105,7 +107,7 @@ The user registers the run information manually into the system. As it is, the s
 
 ![Log a run Sequence Diagram](https://raw.githubusercontent.com/trento-introsde-final/documentation/master/images/slack_update_run.png)
 
-## Check Goal status
+## Check Goal Status
 
 The user can check his goal status whenever he wants. That is, which goals he has accomplished this period, and how much he is missing for remaining ones. The system can reward him with beautiful pics or motivate him with powerful quotes depending on the case.
 
