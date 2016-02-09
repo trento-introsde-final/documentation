@@ -32,6 +32,33 @@ Process Centric Services (SOAP)
 	                       system.
 	====================   ========================================
 
+	**Sample Input**:
+
+	.. code-block:: xml
+
+		<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+		    <Body>
+		        <initializeUser xmlns="http://ws.soap.processcentric.introsde/">
+		            <slack_user_id xmlns="">UF345DE</slack_user_id>
+		            <user_name xmlns="">dan.macri</user_name>
+		        </initializeUser>
+		    </Body>
+		</Envelope>
+
+	**Sample Output**:
+
+	.. code-block:: xml
+
+		<?xml version='1.0' encoding='UTF-8'?>
+		<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+		    <S:Body>
+		        <ns2:initializeUserResponse xmlns:ns2="http://ws.soap.processcentric.introsde/">
+		            <id>5</id>
+		        </ns2:initializeUserResponse>
+		    </S:Body>
+		</S:Envelope>
+
+	
 **checkGoalStatus**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -57,6 +84,49 @@ Process Centric Services (SOAP)
 	**messages**           List of messages that should be
 	                       displayed by the user interface.
 	====================   ========================================
+
+
+	**Sample Input**:
+
+
+	.. code-block:: xml
+
+		<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+		    <Body>
+		        <checkGoalStatus xmlns="http://ws.soap.processcentric.introsde/">
+		            <slack_user_id xmlns="">UF345DE</slack_user_id>
+		        </checkGoalStatus>
+		    </Body>
+		</Envelope>
+
+
+	**Sample Output**:
+
+	.. code-block:: xml
+
+		<?xml version='1.0' encoding='UTF-8'?>
+		<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+		    <S:Body>
+		        <ns2:checkGoalStatusResponse xmlns:ns2="http://ws.soap.processcentric.introsde/">
+		            <goal>
+		                <messages>
+		                    <content>You haven't set any goals yet. We are sad. Maybe this can get you going?</content>
+		                    <type>text</type>
+		                </messages>
+		                <messages>
+		                    <content>https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/12568948_950354585078328_1256244383_n.jpg</content>
+		                    <type>image</type>
+		                </messages>
+		                <messages>
+		                    <content>"Be miserable. Or motivate yourself. Whatever has to be done, it's always your choice." 
+		 -Wayne Dyer</content>
+		                    <type>quote</type>
+		                </messages>
+		            </goal>
+		        </ns2:checkGoalStatusResponse>
+		    </S:Body>
+		</S:Envelope>
+
 
 **updateRunInfo**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -86,6 +156,47 @@ Process Centric Services (SOAP)
 	====================   ========================================
 
 
+	**Sample Input**:
+
+
+	.. code-block:: xml
+
+		<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+		    <Body>
+		        <updateRunInfo xmlns="http://ws.soap.processcentric.introsde/">
+		            <slack_user_id xmlns="">UF345DE</slack_user_id>
+		            <distance xmlns="">4000</distance>
+		            <moving_time xmlns="">2800</moving_time>
+		            <calories xmlns="">340</calories>
+		        </updateRunInfo>
+		    </Body>
+		</Envelope>
+
+
+	**Sample Output**:
+
+	.. code-block:: xml
+
+		<?xml version='1.0' encoding='UTF-8'?>
+		<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+		    <S:Body>
+		        <ns2:updateRunInfoResponse xmlns:ns2="http://ws.soap.processcentric.introsde/">
+		            <person>
+		                <messages>
+		                    <content>Congratulations for your effort :D! Here's a little something to keep you going.</content>
+		                    <type>text</type>
+		                </messages>
+		                <messages>
+		                    <content>"He that is giddy thinks the world turns round.  " 
+		 -William Shakespeare </content>
+		                    <type>quote</type>
+		                </messages>
+		            </person>
+		        </ns2:updateRunInfoResponse>
+		    </S:Body>
+		</S:Envelope>
+
+
 **setGoal** {Params: Goal type, target, period}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -110,6 +221,42 @@ Process Centric Services (SOAP)
 	**messages**           Messages notifying the creation of the
 	                       goal.
 	====================   ========================================
+
+
+	**Sample Input**:
+
+
+	.. code-block:: xml
+
+		<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+		    <Body>
+		        <setGoal xmlns="http://ws.soap.processcentric.introsde/">
+		            <slack_user_id xmlns="">UF345DE</slack_user_id>
+		            <goal_type xmlns="">distance</goal_type>
+		            <target xmlns="">5000</target>
+		            <period xmlns="">daily</period>
+		        </setGoal>
+		    </Body>
+		</Envelope>
+
+
+	**Sample Output**:
+
+	.. code-block:: xml
+
+		<?xml version='1.0' encoding='UTF-8'?>
+		<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+		    <S:Body>
+		        <ns2:setGoalResponse xmlns:ns2="http://ws.soap.processcentric.introsde/">
+		            <person>
+		                <messages>
+		                    <content>Goal saved! That's great. Keep working and soon 5000.0 will seem like a walk in the park.</content>
+		                    <type>text</type>
+		                </messages>
+		            </person>
+		        </ns2:setGoalResponse>
+		    </S:Body>
+		</S:Envelope>
 
 
 ------------------------------------------------
